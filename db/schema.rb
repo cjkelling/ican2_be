@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_152914) do
   enable_extension "plpgsql"
 
   create_table "connections", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "mentee_id"
     t.integer "mentor_id"
   end
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_152914) do
     t.text "about_me"
     t.string "gender"
     t.string "image"
+    t.boolean "mentor"
     t.string "field_of_knowledge"
     t.string "experience_level"
     t.text "work_day_question"

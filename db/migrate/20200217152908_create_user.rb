@@ -11,6 +11,7 @@ class CreateUser < ActiveRecord::Migration[5.2]
       t.text :about_me
       t.string :gender
       t.string :image
+      t.boolean :mentor
 
       t.string :field_of_knowledge
       t.string :experience_level
