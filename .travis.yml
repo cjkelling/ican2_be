@@ -3,7 +3,7 @@ script:
 - bundle exec rails db:migrate RAILS_ENV=test
 - bundle exec rspec
 rvm:
-- 2.5.0
+- 2.4.1
 services:
 - postgresql
 before_install: gem install bundler -v 2.0.2

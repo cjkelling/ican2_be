@@ -1,0 +1,1758 @@
+  [1m[35m (511.6ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (392.7ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (50.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 15:31:06.782918"], ["updated_at", "2020-02-17 15:31:06.782918"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$ad921AmLC6qDO.tIIyLoseVZz0W4ZmJO8hsKGMIcWdQj6IOzrWzj6"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 16:06:28.641234"], ["updated_at", "2020-02-17 16:06:28.641234"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$8b80OtXVhIQFcbQpj8ESPejU5Mumnwj7MUj/t97L9X2v3JMlCbmZy"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 16:06:28.872848"], ["updated_at", "2020-02-17 16:06:28.872848"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$nbo.gH8q/J7BXH2wPCUjPuLvJuKdYovEDtIqgSTv9t5UipchlOXGa"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 16:06:29.090323"], ["updated_at", "2020-02-17 16:06:29.090323"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$7ipLhieFYDaPLNQJt2tOveuXHDHGySLDhw74l/O/uRBs6yEDJVal2"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 16:06:29.307315"], ["updated_at", "2020-02-17 16:06:29.307315"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (213.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (210.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (529.4ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (426.0ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 16:25:56.019327"], ["updated_at", "2020-02-17 16:25:56.019327"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (191.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (186.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (374.9ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (420.1ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 16:26:30.115345"], ["updated_at", "2020-02-17 16:26:30.115345"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (195.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (188.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (402.8ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (351.9ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean DEFAULT FALSE, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateMentor (20200217162719)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" bigserial primary key, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8765c41b32"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_mentors_on_users_id" ON "mentors"  ("users_id")[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217162719"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 16:31:57.962284"], ["updated_at", "2020-02-17 16:31:57.962284"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (190.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (198.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (414.2ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (419.3ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateMentor (20200217162719)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" bigserial primary key, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8765c41b32"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_mentors_on_users_id" ON "mentors"  ("users_id")[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217162719"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 16:33:29.468178"], ["updated_at", "2020-02-17 16:33:29.468178"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (142.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (199.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (412.6ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (413.2ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateMentor (20200217162719)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" bigserial primary key, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8765c41b32"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_mentors_on_users_id" ON "mentors"  ("users_id")[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217162719"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 16:33:53.009420"], ["updated_at", "2020-02-17 16:33:53.009420"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$nocIaqxrqVtscaV/o2RiDePxNrA7a5fvPyVGscQJwc2aLNW.WpGS2"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["mentor", false], ["created_at", "2020-02-17 16:33:53.275442"], ["updated_at", "2020-02-17 16:33:53.275442"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$muKy9AGc7U4KLWW0L5xJKOnWYpxX.NLasS3FfAqH6efUUJBsqtxaa"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["mentor", false], ["created_at", "2020-02-17 16:33:53.493599"], ["updated_at", "2020-02-17 16:33:53.493599"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$FNVRubaNRezoHFMffKGqvOUB96A0rDzgMOcX25j9RbFSjAkmMj1ou"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["mentor", false], ["created_at", "2020-02-17 16:33:53.707534"], ["updated_at", "2020-02-17 16:33:53.707534"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$SHbuKhT3b2iDqZAbH.rWr.REJ.e4s4YDsJk9l8X570QnHMY6UY4.W"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["mentor", false], ["created_at", "2020-02-17 16:33:53.919752"], ["updated_at", "2020-02-17 16:33:53.919752"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (218.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (199.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (349.1ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (418.6ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateMentor (20200217162719)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" bigserial primary key, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8765c41b32"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_mentors_on_users_id" ON "mentors"  ("users_id")[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217162719"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:03:07.514215"], ["updated_at", "2020-02-17 17:03:07.514215"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$BeFWh5phDJDM6EbbdmK1uObn9g3ClCmK3XHRk5UGrrRh3h89L4v7C"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:03:07.789489"], ["updated_at", "2020-02-17 17:03:07.789489"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$nkNgPB.9VxkZtFAeAE6DGObtxMnVkDSJlZPYrL9i5yKj04OcCkRRC"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:03:08.005358"], ["updated_at", "2020-02-17 17:03:08.005358"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$n7K7Zpn9uvhBpabHWZSVaulHPVqU6Epf.TZhd40f8/457EW0TpSq."], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:03:08.217918"], ["updated_at", "2020-02-17 17:03:08.217918"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$bnNQkExVsqurDTDNRlJMMu8.65fwAEDCcwG7stRoA5AmNh.JKwEYi"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:03:08.434899"], ["updated_at", "2020-02-17 17:03:08.434899"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (202.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (191.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (548.5ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (421.4ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateMentor (20200217162719)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" bigserial primary key, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8765c41b32"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_mentors_on_users_id" ON "mentors"  ("users_id")[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217162719"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:06:02.114132"], ["updated_at", "2020-02-17 17:06:02.114132"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$2fYdTRe0cpSq.sEB0xZb0.B4mPKYZYOV38ieIufNPTRLZy5Oph58S"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:06:02.398439"], ["updated_at", "2020-02-17 17:06:02.398439"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$dqrE8OeTAax/ltmuT7y.zOryAuLbQivs9j6Yb4ZosxPuUxCrcSQji"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:06:02.616588"], ["updated_at", "2020-02-17 17:06:02.616588"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$zQCanF/P24s2p0tJqs8TvOOQZk0HCk5xDF70MBY4Tw.2xY2Nyd2bG"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:06:02.829895"], ["updated_at", "2020-02-17 17:06:02.829895"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$OI2ENZq9Bxfbosx4vv989Obmgp2h4b7U3VVBFsG8mgDd3OKQr9My6"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:06:03.042780"], ["updated_at", "2020-02-17 17:06:03.042780"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (199.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (197.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (409.1ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (432.8ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateMentor (20200217162719)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" bigserial primary key, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8765c41b32"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_mentors_on_users_id" ON "mentors"  ("users_id")[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217162719"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:07:04.111396"], ["updated_at", "2020-02-17 17:07:04.111396"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$OgGzMMQTVaj3B4uw/LdFSur6XZCHO761.3FAKD8yE1YPMOt2UG/ga"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:07:04.377580"], ["updated_at", "2020-02-17 17:07:04.377580"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$0TM.Tp.Ew1dwwAipYWRkrOQbNFAuDy1c/KbBdIEMq1gJhNHFl07Fu"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:07:04.596362"], ["updated_at", "2020-02-17 17:07:04.596362"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$IpVNv8T4ZO9qNzzhcKi5cevmY8o63olXA6lml07ak9Mmg602aJ9Bm"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:07:04.810213"], ["updated_at", "2020-02-17 17:07:04.810213"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$CFkxvOA1JozHMnsiQwALbuxquu4QRfmBfdw.ktrvlHs2g7mAaO2xy"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:07:05.023228"], ["updated_at", "2020-02-17 17:07:05.023228"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (203.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (195.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (387.3ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (409.7ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateMentor (20200217162719)
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "mentors" ("id" bigserial primary key, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "users_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8765c41b32"
+FOREIGN KEY ("users_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_mentors_on_users_id" ON "mentors"  ("users_id")[0m
+  ↳ db/migrate/20200217162719_create_mentor.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217162719"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:08:10.008773"], ["updated_at", "2020-02-17 17:08:10.008773"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$M86theoE16zRcbxPvDvl1ONOfCjsdnKIqqwGWL6qX9uAhGJg6yeIa"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:08:22.673381"], ["updated_at", "2020-02-17 17:08:22.673381"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$DIt6YPaLEnnJqRkYqK4qvOUaF/PVBKqyAyVG8JEIIr1VG1Sc1rlNO"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:08:22.888346"], ["updated_at", "2020-02-17 17:08:22.888346"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$PekwvhvYosHjZvUGMbX0XOboYkzl7BIEaE1rDf12JOkM24my4awHO"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:08:23.106923"], ["updated_at", "2020-02-17 17:08:23.106923"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$VbK9Dpir9SnevEgQxq4rLeQ3R0YsQQEoPDLxP9GaGHcQuLfrs8udi"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:08:23.322241"], ["updated_at", "2020-02-17 17:08:23.322241"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (2.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMentor Load (0.2ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$mXKwcF8V/QRNU.3w3eOS3uVhuXluUNK9VWm3rpMGd55oQl.oZItOm"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:13:08.854827"], ["updated_at", "2020-02-17 17:13:08.854827"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$UI1Sk/6M6aDXuR02X9OFjeWiI4uxheHxqlrQwJkPpdBlgk.s9t9GK"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:13:09.071470"], ["updated_at", "2020-02-17 17:13:09.071470"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$87jRtgk5ULQbrS5T5iaYYOLNBV5aQ79RhVSwp653pGwYUuj2EF39m"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:13:09.287524"], ["updated_at", "2020-02-17 17:13:09.287524"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$siY8JHEJFlqRgqediSAjqueNgysubG5kkl7skjBZtX60xRAGRcXiu"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:13:09.503399"], ["updated_at", "2020-02-17 17:13:09.503399"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:1
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMentor Load (0.3ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$Zy.J/.DMlcuIEnXCKh9Lhe8k72zOKGtjuWZ4al0eVQH/yznkQFeqG"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:15:34.528771"], ["updated_at", "2020-02-17 17:15:34.528771"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$rUz7x/9B7mIyD9uxh0mN.OAC6S6PFgpQK9ll2OiVIjiVwUIubA3T2"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:15:34.745978"], ["updated_at", "2020-02-17 17:15:34.745978"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$eWkk2/PeU86aoKcke5kv0.cdh33He.SofqLR0a0me4KsLpefWkG1."], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:15:34.963552"], ["updated_at", "2020-02-17 17:15:34.963552"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$fvJM5pyQrS7ydvMa999jfegprsz6SQfvbOs8R/KqNZCXRvToGT5Ui"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:15:35.188075"], ["updated_at", "2020-02-17 17:15:35.188075"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (1.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (1.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 10]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 11]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 12]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMentor Load (0.2ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$WN2Vg4EmyjrL4mAJRHe/p.fnHB7Uhvga2NxzAYH.RCjTAQFZXwdra"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:16:16.370306"], ["updated_at", "2020-02-17 17:16:16.370306"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$Y.YihbSLGupAVN/.Fi8gnOz4KSaFenjmsJqA8qK0TzsO7LdU0zFOi"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:16:16.587231"], ["updated_at", "2020-02-17 17:16:16.587231"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$4t5MTBUJljdnjBuuI1SwLukVFPlWs7ja6ZwT8bxHBEI7/9GeD2BFy"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:16:16.805789"], ["updated_at", "2020-02-17 17:16:16.805789"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$HlQiIWeZEKw9Ftb4lmxZKuwA/MqZDomz.bshmAJazbL89fQfvrBEy"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:16:17.020739"], ["updated_at", "2020-02-17 17:16:17.020739"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 13]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 14]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 15]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 16]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[36mMentor Load (0.3ms)[0m  [1m[34mSELECT "mentors".* FROM "mentors"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$oHz/ZvsxG7kLucEnMaUXTubqy..9RtwSfU4yJrgtvLMMxEl1rOzkC"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["created_at", "2020-02-17 17:17:18.404980"], ["updated_at", "2020-02-17 17:17:18.404980"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:16
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$39dsgWuI8WSLWKtj5oZE9uAfQ666sp0CDXMEqh8CDa5qfNyPBEll6"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["created_at", "2020-02-17 17:17:18.622494"], ["updated_at", "2020-02-17 17:17:18.622494"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$OnS0KHB0iFtpuzQJzpfP.e/oDo61psEZyHi4DDWfo/gHbB.5LnRmu"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["created_at", "2020-02-17 17:17:18.839590"], ["updated_at", "2020-02-17 17:17:18.839590"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$cxnRVgAxypP7F7IaEZyRMOclVqzNjSbfmFRjFR.Hq3T7MzCOy.9wW"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["created_at", "2020-02-17 17:17:19.056496"], ["updated_at", "2020-02-17 17:17:19.056496"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (204.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (200.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (508.3ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (420.0ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (2.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (8.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:23:58.225044"], ["updated_at", "2020-02-17 17:23:58.225044"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:3
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:3
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$TYUEsVT5R1UB3ZiUfqfciuN10QKwrZHJhL2VJT84NyNGDFpxdbBMK"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["mentor", false], ["created_at", "2020-02-17 17:26:52.900661"], ["updated_at", "2020-02-17 17:26:52.900661"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$s7T/Y5dbAoOfA6XaQE2EqeDXlaZLtgHSFovngcvGbTnc7JCzmehIW"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Advanced"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Ruby on Rails!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:26:53.118563"], ["updated_at", "2020-02-17 17:26:53.118563"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$g345YMSZ2PwOrt2tqh43Tel.BgISYbx7TKf/BtQSA1gBAmwXKrIQy"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Intermediate"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach React Native!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:26:53.335009"], ["updated_at", "2020-02-17 17:26:53.335009"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$SAlrbuG2X3G0RoULVcpASeV0X4JS8hrd8hEeJMBK/to15uuwmKJiy"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Beginner"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Javascript!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:26:53.554234"], ["updated_at", "2020-02-17 17:26:53.554234"]]
+  ↳ db/seeds.rb:63
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:3
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$9MfgHdnhACMGWotqQYomhO1LrXoUQD3K.UMiU05DavnYr.7PSfqHK"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["mentor", false], ["created_at", "2020-02-17 17:29:13.799346"], ["updated_at", "2020-02-17 17:29:13.799346"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$D7VfRQhVitk7LJ4Jt4LDWO9W4dWL1AN0F19ypMvjq9BhcOpmCYEjq"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Advanced"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Ruby on Rails!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:29:14.016041"], ["updated_at", "2020-02-17 17:29:14.016041"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$I0e9pNwbcKgG.P8vvkUs3uOjIv1g.QtMR9R.sQeMFXRM0YAg49uce"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Intermediate"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach React Native!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:29:14.232867"], ["updated_at", "2020-02-17 17:29:14.232867"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$R6u5y6M9ifBbRSG9jwl3YOzgoqsH5db.J9Ty/VPyutz7ll/S2jXqi"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Beginner"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Javascript!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:29:14.448073"], ["updated_at", "2020-02-17 17:29:14.448073"]]
+  ↳ db/seeds.rb:63
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (217.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (199.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (428.1ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (434.3ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "user_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:37:07.879738"], ["updated_at", "2020-02-17 17:37:07.879738"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:3
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$0.0QRYxBPlfS7ANO1Id8sO9d5BoIW7VUcsCi5GPrZDlqR1jN38cbK"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["mentor", false], ["created_at", "2020-02-17 17:37:08.158856"], ["updated_at", "2020-02-17 17:37:08.158856"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$qGYSQQtnEXujwG/uAuuEmeioD4zc4g/V2/vSG5vxKDxks4YgX4JaS"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Advanced"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Ruby on Rails!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:37:08.376809"], ["updated_at", "2020-02-17 17:37:08.376809"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$0SIyYAVmdZIil1CXomuBVO1T1NMtvpFHdSJx40wfQlgblpJuiah4C"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Intermediate"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach React Native!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:37:08.598747"], ["updated_at", "2020-02-17 17:37:08.598747"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$ajNCPxiu5sDNWZQ5eKYIDupU3U8ot7S5C0/oFyrDMSPgw4evx0m0q"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Beginner"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Javascript!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:37:08.820135"], ["updated_at", "2020-02-17 17:37:08.820135"]]
+  ↳ db/seeds.rb:63
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (206.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (192.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (514.5ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (417.8ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "mentee_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:44:02.388024"], ["updated_at", "2020-02-17 17:44:02.388024"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:3
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$1dgrCAXb.F5kf4LnSfrP8.4U8kOBIoF3DmdpuQM7hxaA6Ene2pHZi"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["mentor", false], ["created_at", "2020-02-17 17:44:02.660016"], ["updated_at", "2020-02-17 17:44:02.660016"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$CB.Ly6WGEwR.591lUGIJw.uHtClWpNvqMkG7pGY/OS83uJWDg0iue"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Advanced"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Ruby on Rails!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:44:02.872400"], ["updated_at", "2020-02-17 17:44:02.872400"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$G8qPIaGR02FTibKXxoM2U.U3J7ZToVz2HVNaSFrQI//ansGn/sH4G"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Intermediate"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach React Native!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:44:03.086097"], ["updated_at", "2020-02-17 17:44:03.086097"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$tpMjZ4UQCbVmrcHiDfizTu4422cCvEzApnIbvkdv9h8V3i/GDd9sO"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Beginner"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Javascript!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:44:03.299135"], ["updated_at", "2020-02-17 17:44:03.299135"]]
+  ↳ db/seeds.rb:63
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."mentee_id" = $1[0m  [["mentee_id", 1]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:1
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."mentee_id" = $1[0m  [["mentee_id", 2]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."mentee_id" = $1[0m  [["mentee_id", 3]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:1
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:1
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."mentee_id" = $1[0m  [["mentee_id", 4]]
+  ↳ db/seeds.rb:1
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:1
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$bOF2VWhTgSGOCLjoHaZQ4.wUw6uKqhsJH62zjP4f1VQau7k206FLO"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["mentor", false], ["created_at", "2020-02-17 17:50:51.108332"], ["updated_at", "2020-02-17 17:50:51.108332"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$dRxnsZkrTgQK3EVl/vuSRuf6pWNNyGSvez5QKdxqpUGa42NJd4PpO"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Advanced"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Ruby on Rails!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:50:51.322841"], ["updated_at", "2020-02-17 17:50:51.322841"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:44
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$YPG.QDZJY0Z5n6im6FOJqOhSixP07tqLY9n7QMcoWd..2oIT4D0wa"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Intermediate"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach React Native!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:50:51.537727"], ["updated_at", "2020-02-17 17:50:51.537727"]]
+  ↳ db/seeds.rb:44
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:64
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$SDiZka6iqgiDceBl9MmFuemH0lULg17hQCsRoNlNQ90EYR9JclQne"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Beginner"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Javascript!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:50:51.752644"], ["updated_at", "2020-02-17 17:50:51.752644"]]
+  ↳ db/seeds.rb:64
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:64
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:84
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:84
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:84
+  [1m[36mConnection Create (2.3ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id") VALUES ($1, $2) RETURNING "id"[0m  [["mentee_id", 5], ["mentor_id", 6]]
+  ↳ db/seeds.rb:84
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:84
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (209.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_development"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (211.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ican2_be_test"[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (585.0ms)[0m  [1m[35mCREATE DATABASE "ican2_be_development" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (430.1ms)[0m  [1m[35mCREATE DATABASE "ican2_be_test" ENCODING = 'unicode'[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateUser (20200217152908)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "city" character varying, "state" character varying, "meetup_radius" integer, "field_of_interest" character varying, "about_me" text, "gender" character varying, "image" character varying, "mentor" boolean, "field_of_knowledge" character varying, "experience_level" character varying, "work_day_question" text, "enjoyment_question" text, "teaching_points_question" text, "advice_question" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200217152908_create_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152908"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+Migrating to CreateConnection (20200217152914)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "connections" ("id" bigserial primary key, "mentee_id" integer, "mentor_id" integer)[0m
+  ↳ db/migrate/20200217152914_create_connection.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200217152914"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-17 17:52:01.156571"], ["updated_at", "2020-02-17 17:52:01.156571"]]
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1019476170698765745)[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cjkelling/.rbenv/versions/2.4.1/bin/rake:22
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:1
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT "connections".* FROM "connections"[0m
+  ↳ db/seeds.rb:2
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:4
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ck@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:4
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "Christopher"], ["email", "ck@email.com"], ["password_digest", "$2a$12$9XwmxHMMgQ/YV5mLjf0bIefbN55FV1amQ8.6/1D.gIfMh87yQWTQG"], ["city", "Northglenn"], ["state", "CO"], ["meetup_radius", 25], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK4P0D42W-08ba1d31a7f6-72"], ["mentor", false], ["created_at", "2020-02-17 17:52:01.458141"], ["updated_at", "2020-02-17 17:52:01.458141"]]
+  ↳ db/seeds.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ml@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Mary"], ["email", "ml@email.com"], ["password_digest", "$2a$12$vY7nxdTzjB37Sw4uuP/tN.S7lBBPZLklTa/.7CyKryRxnylK13Kj6"], ["city", "Boulder"], ["state", "CO"], ["meetup_radius", 20], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Advanced"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Ruby on Rails!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:52:01.671003"], ["updated_at", "2020-02-17 17:52:01.671003"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:44
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kw@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Kayla"], ["email", "kw@email.com"], ["password_digest", "$2a$12$RH0hbOEvrJoks4zvLwK52.j0NXZt/uVvKj5a3E88DMnFbAHhkKthe"], ["city", "Denver"], ["state", "CO"], ["meetup_radius", 15], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "She/Her"], ["image", "https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Intermediate"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach React Native!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:52:01.886017"], ["updated_at", "2020-02-17 17:52:01.886017"]]
+  ↳ db/seeds.rb:44
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:64
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bf@email.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "city", "state", "meetup_radius", "field_of_interest", "about_me", "gender", "image", "mentor", "field_of_knowledge", "experience_level", "work_day_question", "enjoyment_question", "teaching_points_question", "advice_question", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["name", "Ben"], ["email", "bf@email.com"], ["password_digest", "$2a$12$3I7pk1gZ/OQs7757GuvEuu0nwfTfei2tL5lkaztoX9okmPq.3RzsG"], ["city", "Golden"], ["state", "CO"], ["meetup_radius", 10], ["field_of_interest", "Software Development"], ["about_me", "I want to learn more about software development."], ["gender", "He/Him"], ["image", "https://ca.slack-edge.com/T029P2S9M-UK28AK7FD-4caa1e486b61-72"], ["mentor", true], ["field_of_knowledge", "Software Development"], ["experience_level", "Beginner"], ["work_day_question", "My typical day is awesome!"], ["enjoyment_question", "I enjoy teaching and sharing my knowledge!"], ["teaching_points_question", "I want to teach Javascript!"], ["advice_question", "Just keep swimming!"], ["created_at", "2020-02-17 17:52:02.097959"], ["updated_at", "2020-02-17 17:52:02.097959"]]
+  ↳ db/seeds.rb:64
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:64
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:84
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:84
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:84
+  [1m[36mConnection Create (0.4ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id") VALUES ($1, $2) RETURNING "id"[0m  [["mentee_id", 1], ["mentor_id", 2]]
+  ↳ db/seeds.rb:84
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:84
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:89
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mConnection Create (0.2ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id") VALUES ($1, $2) RETURNING "id"[0m  [["mentee_id", 1], ["mentor_id", 3]]
+  ↳ db/seeds.rb:89
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:89
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:94
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mConnection Create (0.3ms)[0m  [1m[32mINSERT INTO "connections" ("mentee_id", "mentor_id") VALUES ($1, $2) RETURNING "id"[0m  [["mentee_id", 1], ["mentor_id", 4]]
+  ↳ db/seeds.rb:94
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:94
