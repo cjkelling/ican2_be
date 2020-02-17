@@ -1,0 +1,23 @@
+language: ruby
+script:
+- bundle exec rails db:migrate RAILS_ENV=test
+- bundle exec rspec
+rvm:
+- 2.4.1
+services:
+- postgresql
+before_install: gem install bundler -v 2.0.2
+before_script:
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: "eA5XVvfFcszCgr59ZqZwpCyJzfPxAFBScISMNsbM7laXcH5paeeO2ctBiHZOjehAx2PTXWcSPxEBFokc4rr85D0Nn8ahuInvE7y/h3dqdmjw0+Z8fED4DvEcNROW3kB6a1v1P
+AhMlim8+1vh8Y2p+srt6ngMcQR8+k7+ijLJRad83qi15dF8/Z/vvFqVuBx7MSje1j9JdfmxftqG6jAnpgcTnsFzGmdxenePayw0YvtjkXPn1BaPP8MMWLbRHuAOUIEqFZwNfxOSQndvQKu+T
+0VJQJQtPcFb33+G1n36JNSarFBACj8xVbIyo70E5vsRlZqnJadniaI9Ig5No73vUwXrqkNgRIAk9ipUR4J+OcWxBiyxFb6FA9Isu1VbwK1CPc8DU7V8TX+er6hTZMbVTSdSpVw86sKd2ZaOa
+w4wNVbP0ESBsxnKJz+PeY5j0YSjfMB52n/AcVVJHA5DUHtG1S7hekchYpJM9UDcrLFELWRMHphkG9ukZI51ZF/pMTKWfKUDrqf473DTGQznQNorTaB8v6nuPOsNQZtRSBmXo29/1PeDnhe2X
+8w7Krut/Uw+3HH+z6/MssqfWPHs7a+yKkaxSiJWDMivOJCh0NbeTms+zdlftFjvTvQLMZYOoGRnryAdjAqQ4rYQgY9gXPe1MNXb6KWBSDYUUrFmR4JRTN0="
+  app: ican2
+  on:
+    repo: cjkelling/ican2_be
