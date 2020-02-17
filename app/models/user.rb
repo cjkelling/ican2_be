@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :connections, class_name: 'Connection', foreign_key: 'mentee_id', dependent: :destroy
+
   validates_presence_of :name
   validates_presence_of :city
   validates_presence_of :state
@@ -7,7 +9,15 @@ class User < ApplicationRecord
   validates_presence_of :about_me
   validates_presence_of :gender
   validates_presence_of :image
+  validates :mentor, inclusion: { in: [true, false] }
   validates :email, uniqueness: true, presence: true
   validates_presence_of :password_digest
   has_secure_password
+
+  validates_presence_of :field_of_knowledge, if: ->(x) { x.mentor }
+  validates_presence_of :experience_level, if: ->(x) { x.mentor }
+  validates_presence_of :work_day_question, if: ->(x) { x.mentor }
+  validates_presence_of :enjoyment_question, if: ->(x) { x.mentor }
+  validates_presence_of :teaching_points_question, if: ->(x) { x.mentor }
+  validates_presence_of :advice_question, if: ->(x) { x.mentor }
 end
