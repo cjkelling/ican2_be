@@ -1,4 +1,3 @@
-require 'rails_helper'
 
 describe 'get user endpoint' do
   before(:each) do

@@ -1,6 +1,5 @@
 module Types
   class QueryType < Types::BaseObject
-
     field :mentors, [Types::UserType], null: false  do
       argument :zip_code, String, required: false
       argument :gender, String, required: false
@@ -19,6 +18,5 @@ module Types
     def users(id:)
       User.get_user(id)
     end
-
   end
 end
