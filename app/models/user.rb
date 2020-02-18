@@ -20,4 +20,24 @@ class User < ApplicationRecord
   validates_presence_of :enjoyment_question, if: ->(x) { x.mentor }
   validates_presence_of :teaching_points_question, if: ->(x) { x.mentor }
   validates_presence_of :advice_question, if: ->(x) { x.mentor }
+
+
+
+  def User.get_all_mentors(params)
+    selections = params.select {|k,v| v != nil }
+    selections[:mentor] = true
+    User.where(selections)
+  end
+
+  def User.get_user(id)
+    User.find(id)
+  end
+
+
+
+
+
+
+
+
 end
