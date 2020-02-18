@@ -53,20 +53,21 @@ describe 'get user endpoint' do
     expect(result["data"]["mentors"][1]["name"]).to eq('Kayla')
     expect(result["data"]["mentors"][2]["name"]).to eq('Ben')
   end
-  xit 'sends all mentors by search with search params' do
-    variables = { "zip_code": "80202"}
+  it 'sends all mentors by search with search params' do
     query_string = <<-GRAPHQL
-      query($zip_code: String!) {
-        mentors($zip_code) {
+      query($zipCode: String!) {
+        mentors(zipCode: $zipCode) {
           name
           email
         }
       }
     GRAPHQL
 
-    post '/graphql', params: { query: query_string, variables: variables}
+    post '/graphql', params: { query: query_string, variables: { zipCode: "80202"}}
 
     result = JSON.parse(response.body)
-    require "pry"; binding.pry
+    expect(result["data"]["mentors"].length).to eq(1)
+    expect(result["data"]["mentors"][0]["name"]).to eq('Mary')
+
   end
 end
