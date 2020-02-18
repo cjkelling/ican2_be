@@ -11,9 +11,17 @@ gem 'puma', '~> 3.11'
 gem 'rack-cors'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'rspec-rails'
+<<<<<<< HEAD
 gem 'graphql'
 
+=======
+gem 'graphql', '~> 1.7'
+>>>>>>> 8bfe674058df5107bb6af40de8bad0d8e8645a68
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'graphiql-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -26,6 +34,7 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
+  gem 'graphiql-rails'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
