@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates_presence_of :name
   validates_presence_of :city
   validates_presence_of :state
+  validates_presence_of :zip_code
   validates_presence_of :meetup_radius
   validates_presence_of :field_of_interest
   validates_presence_of :about_me

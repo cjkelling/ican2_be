@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:city) }
     it { should validate_presence_of(:state) }
+    it { should validate_presence_of(:zip_code) }
     it { should validate_presence_of(:meetup_radius) }
     it { should validate_presence_of(:field_of_interest) }
     it { should validate_presence_of(:about_me) }
