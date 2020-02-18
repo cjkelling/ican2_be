@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe MentorProfile, type: :model do
   describe 'validations for mentor' do
-    subject { MentorProfile.new(mentor: true) }
+    subject { MentorProfile.new }
     it { should validate_presence_of(:field_of_knowledge) }
     it { should validate_presence_of(:experience_level) }
     it { should validate_presence_of(:work_day_question) }

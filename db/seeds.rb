@@ -7,7 +7,8 @@ Connection.destroy_all
 mentee = User.create!(
   name: 'Christopher',
   email: 'ck@email.com',
-  password: 'password')
+  password: 'password',
+  mentor: false )
 
 Profile.create!(
   age: 31,
@@ -27,7 +28,8 @@ Location.create!(
 mentor = User.create!(
   name: 'Mary',
   email: 'ml@email.com',
-  password: 'password')
+  password: 'password',
+  mentor: true )
 
 Profile.create!(
   age: 27,
@@ -45,7 +47,6 @@ Location.create!(
   user_id: mentor.id)
 
 MentorProfile.create!(
-  mentor: true,
   field_of_knowledge: 'Software Development',
   experience_level: 'Advanced',
   work_day_question: 'My typical day is awesome!',
@@ -57,7 +58,8 @@ MentorProfile.create!(
 mentor2 = User.create!(
   name: 'Kayla',
   email: 'kw@email.com',
-  password: 'password')
+  password: 'password',
+  mentor: true )
 
 Profile.create!(
   age: 28,
@@ -75,7 +77,6 @@ Location.create!(
   user_id: mentor2.id)
 
 MentorProfile.create!(
-  mentor: true,
   field_of_knowledge: 'Software Development',
   experience_level: 'Intermediate',
   work_day_question: 'My typical day is awesome!',
@@ -87,7 +88,8 @@ MentorProfile.create!(
 mentor3 = User.create!(
   name: 'Ben',
   email: 'bf@email.com',
-  password: 'password')
+  password: 'password',
+  mentor: true)
 
 Profile.create!(
   age: 26,
@@ -105,7 +107,6 @@ Location.create!(
   user_id: mentor3.id)
 
 MentorProfile.create!(
-  mentor: true,
   field_of_knowledge: 'Software Development',
   experience_level: 'Beginner',
   work_day_question: 'My typical day is awesome!',

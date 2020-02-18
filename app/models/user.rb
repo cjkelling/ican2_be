@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_one :profile
   has_one :mentor_profile
 
+  validates :mentor, inclusion: { in: [true, false] }
   validates_presence_of :name
   validates :email, uniqueness: true, presence: true
   validates_presence_of :password_digest

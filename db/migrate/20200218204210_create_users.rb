@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email, uniqueness: true
       t.string :password_digest
+      t.boolean :mentor
+      
       t.timestamps
     end
   end
