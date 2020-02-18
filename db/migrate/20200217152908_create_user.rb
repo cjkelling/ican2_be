@@ -6,6 +6,7 @@ class CreateUser < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :city
       t.string :state
+      t.string :zip_code
       t.integer :meetup_radius
       t.string :field_of_interest
       t.text :about_me

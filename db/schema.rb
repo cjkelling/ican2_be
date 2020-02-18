@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_152914) do
     t.string "password_digest"
     t.string "city"
     t.string "state"
+    t.string "zip_code"
     t.integer "meetup_radius"
     t.string "field_of_interest"
     t.text "about_me"
