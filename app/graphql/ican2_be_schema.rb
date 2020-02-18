@@ -1,3 +1,6 @@
+require 'types/mutation_type'
+require 'types/query_type'
+
 class Ican2BeSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
