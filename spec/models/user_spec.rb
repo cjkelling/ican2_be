@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
   end
 
-  describe 'when a mentor' do
+  describe 'validations for mentor' do
     subject { User.new(mentor: true) }
     it { should validate_presence_of(:field_of_knowledge) }
     it { should validate_presence_of(:experience_level) }
@@ -24,4 +24,15 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:teaching_points_question) }
     it { should validate_presence_of(:advice_question) }
   end
+
+  describe 'methods' do
+    it 'get all mentors' do
+
+    end
+
+    it 'gets a user' do
+      
+    end
+  end
+
 end
