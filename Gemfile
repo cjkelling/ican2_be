@@ -11,6 +11,7 @@ gem 'puma', '~> 3.11'
 gem 'rack-cors'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'rspec-rails'
+gem 'graphql'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
