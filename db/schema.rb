@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2020_02_18_204253) do
   end
 
   create_table "mentor_profiles", force: :cascade do |t|
-    t.boolean "mentor"
     t.string "field_of_knowledge"
     t.string "experience_level"
     t.text "work_day_question"
@@ -61,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_204253) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.boolean "mentor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

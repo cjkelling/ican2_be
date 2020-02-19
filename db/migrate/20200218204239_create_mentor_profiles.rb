@@ -1,7 +1,6 @@
 class CreateMentorProfiles < ActiveRecord::Migration[5.2]
   def change
     create_table :mentor_profiles do |t|
-      t.boolean :mentor
       t.string :field_of_knowledge
       t.string :experience_level
       t.text :work_day_question
