@@ -12,11 +12,11 @@ module Types
     end
 
     field :users, Types::UserType, null: false do
-      argument :id, ID, required: true
+      argument :email, String, required: true
     end
 
-    def users(id:)
-      User.get_user(id)
+    def users(email:)
+      User.get_user(email)
     end
   end
 end

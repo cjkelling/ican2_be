@@ -1,5 +1,5 @@
 
-describe 'get user endpoint' do
+describe 'get mentors endpoint' do
   before(:each) do
     @mentor = User.create!({id: 1, name: 'Mary', email: 'ml@email.com',  password_digest: 'password', mentor: true})
 
@@ -69,5 +69,21 @@ describe 'get user endpoint' do
     expect(result["data"]["mentors"].length).to eq(1)
     expect(result["data"]["mentors"][0]["name"]).to eq('Mary')
 
+  end
+  it 'cannot get mentors with invalid search params' do
+    query_string = <<-GRAPHQL
+      query($animal: String!) {
+        mentors(animal: $animal) {
+          name
+          email
+        }
+      }
+    GRAPHQL
+
+    post '/api/v1/graphql', params: { query: query_string, variables: { animal: "Hippo"}}
+
+    result = JSON.parse(response.body)
+
+    expect(result["errors"][0]["message"]).to eq("Field 'mentors' doesn't accept argument 'animal'")
   end
 end
