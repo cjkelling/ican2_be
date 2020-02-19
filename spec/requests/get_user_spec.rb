@@ -46,7 +46,7 @@ describe 'get user endpoint' do
       }
     GRAPHQL
 
-    post '/graphql', params: { query: query_string }
+    post '/api/v1/graphql', params: { query: query_string }
 
     result = JSON.parse(response.body)
     expect(result["data"]["mentors"][0]["name"]).to eq('Mary')
@@ -63,7 +63,7 @@ describe 'get user endpoint' do
       }
     GRAPHQL
 
-    post '/graphql', params: { query: query_string, variables: { zipCode: "80202"}}
+    post '/api/v1/graphql', params: { query: query_string, variables: { zipCode: "80202"}}
 
     result = JSON.parse(response.body)
     expect(result["data"]["mentors"].length).to eq(1)
