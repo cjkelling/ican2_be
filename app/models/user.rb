@@ -38,7 +38,11 @@ class User < ApplicationRecord
   private
 
   def self.format_selections(params)
-    params['locations.zip_code'] = params.delete(:zip_code)
+    if params[:location]
+      params['locations.city'] = params[:location].split(',')[0]
+      params['locations.state'] = params[:location].split(',')[1].strip
+      params.delete(:location)
+    end
     params['profiles.gender'] = params.delete(:gender)
     params['mentor_profiles.field_of_knowledge'] = params.delete(:field)
     params['mentor_profiles.experience_level'] = params.delete(:expert_lvl)
