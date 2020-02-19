@@ -76,8 +76,12 @@ class User < ApplicationRecord
   end
 
   def check_mentor_info(mentor_info)
-    return true if mentor_info.empty?
-    if self.mentor_profile
+    if mentor_info.empty? && self.mentor_profile
+      MentorProfile.destroy(self.mentor_profile.id)
+    elsif mentor_info.empty?
+      return true
+    end
+    if self.mentor_profile 
       mentor_info.all? {|k,v| v == self.mentor_profile[k]}
     else
       mentor_info[:user_id] = self.id
