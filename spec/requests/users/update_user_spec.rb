@@ -47,6 +47,7 @@ describe 'update user endpoint' do
     expect(result["data"]["updateUser"]["user"]["mentor"]).to eq(false)
     expect(@mentor.location.city).to eq('Denver')
     expect(@mentor.location.zip_code).to eq('66236')
+    expect(@mentor.mentor_profile).to be_nil 
   end
   it 'can update user to mentor' do
     query_string = <<-GRAPHQL
