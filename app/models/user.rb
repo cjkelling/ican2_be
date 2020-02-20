@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :connections, class_name: 'Connection', foreign_key: 'mentee_id', dependent: :destroy
-  has_one :location
-  has_one :profile
-  has_one :mentor_profile
+  has_one :location, dependent: :destroy
+  has_one :profile, dependent: :destroy
+  has_one :mentor_profile, dependent: :destroy
 
   validates :mentor, inclusion: { in: [true, false] }
   validates_presence_of :name
