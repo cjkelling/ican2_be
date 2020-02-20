@@ -1,4 +1,3 @@
-
 describe 'get user endpoint' do
   before(:each) do
     @mentor = User.create!({id: 1, name: 'Mary', email: 'ml@email.com',  password_digest: 'password', mentor: true})
@@ -52,7 +51,7 @@ describe 'get user endpoint' do
     expect(result["data"]["users"]["name"]).to eq('Kayla')
     expect(result["data"]["users"]).to be_instance_of(Hash)
   end
-  it 'returns nil for a user query with invalid id' do
+  it 'returns nil for a user query with invalid email' do
     query_string = <<-GRAPHQL
       query($email: String!) {
         users(email: $email) {
