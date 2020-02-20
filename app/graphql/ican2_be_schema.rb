@@ -1,5 +1,7 @@
 require 'types/mutation_type'
 require 'types/query_type'
+require 'types/message_type'
+require 'types/conversation_type'
 
 class Ican2BeSchema < GraphQL::Schema
   mutation(Types::MutationType)

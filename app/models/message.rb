@@ -7,6 +7,6 @@ class Message < ApplicationRecord
   validates_presence_of :user_id
 
   def Message.messages(id)
-    Message.where(conversation_id: id)
+    Message.where({conversation_id: id})
   end
 end

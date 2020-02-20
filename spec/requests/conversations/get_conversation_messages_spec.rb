@@ -44,6 +44,7 @@ describe 'Get Conversation Messages' do
     post '/api/v1/graphql', params: { query: query_string, variables: { sender: @mentee.id, recipient: @mentor.id }}
 
     result = JSON.parse(response.body)
-    p result
+    expect(result["data"]["messages"][0]["body"]).to eq( "Hello. I would like you to mentor me.")
+    expect(result["data"]["messages"][1]["body"]).to eq( "Hello. I would be happy to mentor you!")
   end
 end
