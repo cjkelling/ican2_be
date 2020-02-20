@@ -18,5 +18,23 @@ module Types
     def users(email:)
       User.get_user(email)
     end
+
+    field :conversations, Types::ConversationType, null: false do
+      argument :sender, String, required: true
+      argument :recipient, String, required: true
+    end
+
+    def conversations(sender:, recipient:)
+      Conversation.conversations(sender.to_i, recipient.to_i)
+    end
+
+    field :messages, Types::MessageType, null: false do
+      argument :sender, String, required: true
+      argument :recipient, String, required: true
+    end
+
+    def messages(sender:, recipient:)
+      response = Message.messages(Conversation.conversations(sender.to_i, recipient.to_i))
+    end
   end
 end
