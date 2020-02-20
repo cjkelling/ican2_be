@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :connections, class_name: 'Connection', foreign_key: 'mentee_id', dependent: :destroy
+  has_many :conversations, foreign_key: 'sender_id', dependent: :destroy
 
   has_one :location, dependent: :destroy
   has_one :profile, dependent: :destroy
@@ -53,7 +54,7 @@ class User < ApplicationRecord
   def updated?(user_info, profile_info, mentor_info, location_info)
     if check_user_info(user_info) && check_profile_info(profile_info) &&
                                      check_location_info(location_info) &&
-                                    check_mentor_info(mentor_info)
+                                     check_mentor_info(mentor_info)
       true
     else
       false
@@ -83,7 +84,7 @@ class User < ApplicationRecord
     elsif mentor_info.empty?
       return true
     end
-    if self.mentor_profile 
+    if self.mentor_profile
       mentor_info.all? {|k,v| v == self.mentor_profile[k]}
     else
       mentor_info[:user_id] = self.id

@@ -10,4 +10,8 @@ RSpec.describe MentorProfile, type: :model do
     it { should validate_presence_of(:teaching_points_question) }
     it { should validate_presence_of(:advice_question) }
   end
+
+  describe 'relationships' do
+    it { should belong_to :user }
+  end
 end

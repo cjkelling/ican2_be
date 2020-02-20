@@ -3,6 +3,8 @@ Profile.destroy_all
 Location.destroy_all
 MentorProfile.destroy_all
 Connection.destroy_all
+Conversation.destroy_all
+Message.destroy_all
 
 mentee = User.create!(
   name: 'Christopher',
@@ -128,4 +130,31 @@ Connection.create!(
 Connection.create!(
   mentee_id: mentee.id,
   mentor_id: mentor3.id
+)
+
+conversation = Conversation.create!(
+  sender_id: mentee.id,
+  recipient_id: mentor.id
+)
+
+Conversation.create!(
+  sender_id: mentee.id,
+  recipient_id: mentor2.id
+)
+
+Conversation.create!(
+  sender_id: mentee.id,
+  recipient_id: mentor3.id
+)
+
+Message.create!(
+  body: "Hello. I would like you to mentor me.",
+  conversation_id: conversation.id,
+  user_id: mentee.id
+)
+
+Message.create!(
+  body: "Hello. I would be happy to mentor you!",
+  conversation_id: conversation.id,
+  user_id: mentor.id
 )
