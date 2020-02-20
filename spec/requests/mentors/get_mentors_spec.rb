@@ -1,4 +1,3 @@
-
 describe 'get mentors endpoint' do
   before(:each) do
     @mentor = User.create!({id: 1, name: 'Mary', email: 'ml@email.com',  password_digest: 'password', mentor: true})
