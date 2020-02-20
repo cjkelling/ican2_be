@@ -7,14 +7,13 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email) }
     it { should validate_presence_of(:password) }
   end
-  
-  describe 'methods' do
-    it 'get all mentors' do
 
-    end
+  describe 'relationships' do
+    it { should have_many :connections }
+    it { should have_many :conversations }
 
-    it 'gets a user' do
-
-    end
+    it { should have_one :location }
+    it { should have_one :profile }
+    it { should have_one :mentor_profile }
   end
 end
