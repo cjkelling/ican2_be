@@ -24,13 +24,13 @@ class User < ApplicationRecord
   def User.create_user_and_info(user_info, profile_info, mentor_info, location_info)
     user = User.new(user_info)
     if user.save
-      profile_info[user_id: user.id ]
-      location_info[user_id: user.id ]
-      Profile.new(profile_info)
-      Location.new(location_info)
+      profile_info[:user_id] = user.id
+      location_info[:user_id] = user.id
+      Profile.create!(profile_info)
+      Location.create!(location_info)
       if user.mentor
-        mentor_info[user_id: user.id ]
-        MentorProfile.new(mentor_info)
+        mentor_info[:user_id] = user.id
+        MentorProfile.create!(mentor_info)
       end
     end
   end
