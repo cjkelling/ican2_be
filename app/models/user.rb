@@ -54,7 +54,7 @@ class User < ApplicationRecord
   def updated?(user_info, profile_info, mentor_info, location_info)
     if check_user_info(user_info) && check_profile_info(profile_info) &&
                                      check_location_info(location_info) &&
-                                    check_mentor_info(mentor_info)
+                                     check_mentor_info(mentor_info)
       true
     else
       false

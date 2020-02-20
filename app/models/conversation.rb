@@ -5,4 +5,9 @@ class Conversation < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates_uniqueness_of :sender_id, :scope => :recipient_id
+
+  def Conversation.conversations(sender, recipient)
+    convo = Conversation.where(sender_id: sender, recipient_id: recipient)
+    convo[0].id
+  end
 end
