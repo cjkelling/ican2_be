@@ -76,6 +76,10 @@ Body:  { "query": "mentors": { "name" "city" "state" } } }
 
 ![Database Schema](https://i.imgur.com/nhLdb4J.png)
 
+### Project Board
+
+[project_board](https://github.com/mcat56/ican2_BE/projects/1)
+
 ### Core Contributors
 
 Mary Lang @mcat56
