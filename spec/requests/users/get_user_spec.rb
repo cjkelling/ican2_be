@@ -37,17 +37,39 @@ describe 'get user endpoint' do
   end
   it 'sends user info' do
     query_string = <<-GRAPHQL
-      query($email: String!) {
-        users(email: $email) {
-          name
-          email
+    query($email: String!) {
+       users(email: $email) {
+        name
+        email
+        mentor
+       profile {
+            gender
+            aboutMe
+            image
+            fieldOfInterest
+        }
+        mentorProfile {
+          fieldOfKnowledge
+          experienceLevel
+          workDayQuestion
+          enjoymentQuestion
+          teachingPointsQuestion
+          adviceQuestion
+        }
+        location {
+          city
+          state
         }
       }
+    }
     GRAPHQL
 
     post '/api/v1/graphql', params: { query: query_string, variables: { email: 'kw@email.com' }}
 
     result = JSON.parse(response.body)
+    expect(result["data"]["users"]["location"]["city"]).to eq('Denver')
+    expect(result["data"]["users"]["mentorProfile"]["fieldOfKnowledge"]).to eq('Software Development')
+    expect(result["data"]["users"]["profile"]["aboutMe"]).to eq('I want to learn more about software development.')
     expect(result["data"]["users"]["name"]).to eq('Kayla')
     expect(result["data"]["users"]).to be_instance_of(Hash)
   end
