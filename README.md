@@ -78,7 +78,7 @@ Body:  { "query": "mentors": { "name" "city" "state" } } }
 
 ### Project Board
 
-[project_board](https://github.com/mcat56/ican2_BE/projects/1)
+[GitHub Project Board](https://github.com/mcat56/ican2_BE/projects/1)
 
 ### Core Contributors
 
