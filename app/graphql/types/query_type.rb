@@ -28,7 +28,7 @@ module Types
       Conversation.conversations(sender.to_i, recipient.to_i)
     end
 
-    field :messages, Types::MessageType, null: false do
+    field :messages, [Types::MessageType], null: false do
       argument :sender, String, required: true
       argument :recipient, String, required: true
     end
