@@ -15,6 +15,7 @@ gem 'graphql', '~> 1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'sass-rails'
 gem 'uglifier'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'coffee-rails'
 gem 'graphiql-rails'
 
