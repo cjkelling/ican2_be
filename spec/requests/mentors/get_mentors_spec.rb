@@ -46,7 +46,6 @@ describe 'get mentors endpoint' do
     GRAPHQL
 
     post '/api/v1/graphql', params: { query: query_string }
-
     result = JSON.parse(response.body)
     expect(result["data"]["mentors"][0]["name"]).to eq('Mary')
     expect(result["data"]["mentors"][1]["name"]).to eq('Kayla')
