@@ -31,6 +31,7 @@ class GraphqlController < ApplicationController
         {}
       end
     when Hash, ActionController::Parameters
+      ActionController::Parameters.permit_all_parameters = true
       ambiguous_param
     when nil
       {}
