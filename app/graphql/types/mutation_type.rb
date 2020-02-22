@@ -7,6 +7,7 @@ module Types
     field :destroy_connection, mutation: Mutations::DestroyConnection
     field :destroy_message, mutation: Mutations::DestroyMessage
     field :destroy_user, mutation: Mutations::DestroyUser
+    field :update_message, mutation: Mutations::UpdateMessage
     field :update_user, mutation: Mutations::UpdateUser
   end
 end
