@@ -12,11 +12,10 @@ describe 'create message' do
       work_day_question: 'My typical day is awesome!', enjoyment_question: 'I enjoy teaching and sharing my knowledge!',
       teaching_points_question: 'I want to teach React Native!', advice_question: 'Just keep swimming!'} )
     Location.create({user_id: 2,   city: 'Denver', state: 'CO', zip_code: '90210', meetup_radius: '15' })
-
-    @conversation = Conversation.create!(sender_id: @mentee.id, recipient_id: @mentor.id)
   end
 
   it 'creates a message' do
+    @conversation = Conversation.create!(sender_id: @mentee.id, recipient_id: @mentor.id)
     query_string = <<-GRAPHQL
       mutation {
         createMessage(input: {
@@ -56,5 +55,26 @@ describe 'create message' do
 
     expect(Message.all.length).to eq(0)
     expect(result["errors"][0]["message"]).to eq("Cannot return null for non-nullable field CreateMessage.message")
+  end
+
+  it 'creates a conversation if proper sender_id and receiver_id is sent' do
+    query_string = <<-GRAPHQL
+      mutation {
+        createMessage(input: {
+          senderId: "#{@mentee.id}"
+          recipientId: "#{@mentor.id}"
+          body: "Hello. Let's start a conversation!"
+          userId: "#{@mentee.id}"
+        })  {
+          message
+        }
+      }
+    GRAPHQL
+
+    post '/api/v1/graphql', params: { query: query_string }
+
+    result = JSON.parse(response.body)
+    expect(Message.all.length).to eq(1)
+    expect(result["data"]["createMessage"]["message"]).to eq('Message created successfully!')
   end
 end

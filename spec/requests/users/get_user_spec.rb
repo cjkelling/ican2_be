@@ -35,6 +35,7 @@ describe 'get user endpoint' do
 
     Location.create({user_id: 3,   city: 'Golden', state: 'CO', zip_code: '90302', meetup_radius: '10' })
   end
+  
   it 'sends user info' do
     query_string = <<-GRAPHQL
     query($email: String!) {
@@ -73,6 +74,7 @@ describe 'get user endpoint' do
     expect(result["data"]["users"]["name"]).to eq('Kayla')
     expect(result["data"]["users"]).to be_instance_of(Hash)
   end
+
   it 'returns nil for a user query with invalid email' do
     query_string = <<-GRAPHQL
       query($email: String!) {
