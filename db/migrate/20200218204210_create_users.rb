@@ -5,7 +5,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email, uniqueness: true
       t.string :password_digest
       t.boolean :mentor
-      
+      t.string :address
+      t.string :latitude
+      t.string :longitude
+
       t.timestamps
     end
   end

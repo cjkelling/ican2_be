@@ -27,17 +27,6 @@ ActiveRecord::Schema.define(version: 2020_02_20_161154) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "city"
-    t.string "state"
-    t.string "zip_code"
-    t.integer "meetup_radius"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_locations_on_user_id"
-  end
-
   create_table "mentor_profiles", force: :cascade do |t|
     t.string "field_of_knowledge"
     t.string "experience_level"
@@ -63,7 +52,6 @@ ActiveRecord::Schema.define(version: 2020_02_20_161154) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "age"
     t.string "gender"
     t.text "about_me"
     t.string "image"
@@ -79,11 +67,13 @@ ActiveRecord::Schema.define(version: 2020_02_20_161154) do
     t.string "email"
     t.string "password_digest"
     t.boolean "mentor"
+    t.string "address"
+    t.string "latitude"
+    t.string "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "locations", "users"
   add_foreign_key "mentor_profiles", "users"
   add_foreign_key "profiles", "users"
 end
