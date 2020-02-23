@@ -37,9 +37,10 @@ describe 'update user endpoint' do
     post '/api/v1/graphql', params: { query: query_string }
 
     result = JSON.parse(response.body)
+    @mentor.reload
     expect(result["data"]["updateUser"]["user"]["name"]).to eq('May')
     expect(result["data"]["updateUser"]["user"]["mentor"]).to eq(false)
-    expect(@mentor.location.address).to eq('Denver, CO')
+    expect(@mentor.address).to eq('Denver, CO')
     expect(@mentor.mentor_profile).to be_nil
   end
   it 'can update user to mentor' do

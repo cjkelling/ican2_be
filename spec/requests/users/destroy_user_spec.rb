@@ -26,7 +26,6 @@ describe 'destroy user endpoint' do
     result = JSON.parse(response.body)
     expect(result["data"]["destroyUser"]["message"]).to eq("successful deletion")
     expect(User.all.length).to eq(0)
-    expect(Location.all.length).to eq(0)
     expect(MentorProfile.all.length).to eq(0)
     expect(Profile.all.length).to eq(0)
   end
@@ -47,7 +46,6 @@ describe 'destroy user endpoint' do
 
     expect(result["errors"][0]["message"]).to eq("Cannot return null for non-nullable field DestroyUser.message")
     expect(User.all.length).to eq(1)
-    expect(Location.all.length).to eq(1)
     expect(MentorProfile.all.length).to eq(1)
     expect(Profile.all.length).to eq(1)
 

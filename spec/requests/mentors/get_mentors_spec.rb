@@ -1,6 +1,6 @@
 describe 'get mentors endpoint' do
   before(:each) do
-    @user = User.create!({id: 4, name: 'Pheobe', email: 'pb@email.com',  password_digest: 'password', mentor: false, address: 'Boulder, CO'})
+    @user = User.create!({id: 4, name: 'Pheobe', email: 'pb@email.com',  password_digest: 'password', mentor: false, address: 'Golden, CO'})
 
     Profile.create({ user_id: 4, field_of_interest: 'Software Development', about_me: 'I want to learn more about software development.',  gender: 'She/Her',
       image: 'https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72' })
@@ -37,7 +37,7 @@ describe 'get mentors endpoint' do
   end
   it 'sends all mentors by search' do
     query_string = <<-GRAPHQL
-      query($email String!) {
+      query($email: String!) {
         mentors(email: $email) {
           name
           email
@@ -45,16 +45,16 @@ describe 'get mentors endpoint' do
       }
     GRAPHQL
 
-    post '/api/v1/graphql', params: { query: query_string,  variables: { email: "ml@email.com"}}
+    post '/api/v1/graphql', params: { query: query_string,  variables: { email: "pb@email.com"}}
 
     result = JSON.parse(response.body)
     expect(result["data"]["mentors"][0]["name"]).to eq('Mary')
     expect(result["data"]["mentors"][1]["name"]).to eq('Kayla')
     expect(result["data"]["mentors"][2]["name"]).to eq('Ben')
   end
-  it 'sends all mentors by search with search params such as city and state' do
+  it 'sends all mentors by search with filter such as distance' do
     query_string = <<-GRAPHQL
-      query($email: String!, $distance: Int!) {
+      query($email: String!, $distance: String!) {
         mentors(email: $email, distance: $distance) {
           name
           email
@@ -62,7 +62,7 @@ describe 'get mentors endpoint' do
       }
     GRAPHQL
 
-    post '/api/v1/graphql', params: { query: query_string, variables: { email: "ml@email.com", distance: 10 }}
+    post '/api/v1/graphql', params: { query: query_string, variables: { email: "pb@email.com", distance: "10" }}
 
     result = JSON.parse(response.body)
     expect(result["data"]["mentors"].length).to eq(1)
@@ -79,7 +79,7 @@ describe 'get mentors endpoint' do
       }
     GRAPHQL
 
-    post '/api/v1/graphql', params: { query: query_string, variables: { animal: "Hippo"}}
+    post '/api/v1/graphql', params: { query: query_string, variables: { email: "pb@email.com", animal: "Hippo"}}
 
     result = JSON.parse(response.body)
 

@@ -1,9 +1,4 @@
 class User < ApplicationRecord
-  attr_accessor :address, :latitude, :longitude
-
-  geocoded_by :address
-  before_validation :geocode
-
   has_many :connections, class_name: 'Connection', foreign_key: 'mentee_id', dependent: :destroy
   has_many :conversations, foreign_key: 'sender_id', dependent: :destroy
 
@@ -15,17 +10,23 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates_presence_of :password_digest
   validates_presence_of :address
-  validates_presence_of :latitude
-  validates_presence_of :longitude
   has_secure_password
 
+
+  geocoded_by :address
+  after_validation :geocode
+
   def User.get_all_mentors(params)
-    require "pry"; binding.pry
+    user = User.find_by(email: params[:user_email])
     formatted_selections = format_selections(params)
+    if params[:distance]
+      ids = get_nearby_users(user, params[:distance])
+      formatted_selections.delete(:distance)
+      formatted_selections[:id] = ids
+    end
     formatted_selections = params.select {|k,v| v != nil }
     formatted_selections[:mentor] = true
     mentors = User.joins(:mentor_profile).joins(:profile).where(formatted_selections)
-
   end
 
   def User.get_user(email)
@@ -67,6 +68,11 @@ class User < ApplicationRecord
 
   private
 
+  def self.get_nearby_users(user, distance)
+    nearbys = user.nearbys(distance)
+    ids = nearbys.map {|user| user.id}
+  end
+
   def check_user_info(user_info)
     user_info.all? {|k,v| v == self[k]}
   end
@@ -91,6 +97,7 @@ class User < ApplicationRecord
   end
 
   def self.format_selections(params)
+    params.delete(:user_email)
     params['profiles.gender'] = params.delete(:gender)
     params['mentor_profiles.field_of_knowledge'] = params.delete(:field)
     params['mentor_profiles.experience_level'] = params.delete(:expert_lvl)

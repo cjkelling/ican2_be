@@ -1,9 +1,9 @@
 class Mutations::UpdateUser < Mutations::BaseMutation
   argument :name, String, required: false
   argument :email, String, required: false
+  argument :address, String, required: false
   argument :password_digest, String, required: false
   argument :mentor, Boolean, required: false
-  argument :address, String, required: false
 
   argument :gender, String, required: false
   argument :about_me, String, required: false

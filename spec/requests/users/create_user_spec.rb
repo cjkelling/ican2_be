@@ -96,7 +96,7 @@ describe 'create user endpoint' do
 
     result = JSON.parse(response.body)
     expect(result["errors"].length).to eq(2)
-    expect(result["errors"][0]["message"]).to eq("Argument 'email' on InputObject 'CreateUserInput' is required. Expected type Int!")
+    expect(result["errors"][0]["message"]).to eq("Argument 'email' on InputObject 'CreateUserInput' is required. Expected type String!")
     expect(result["errors"][1]["message"]).to eq("Argument 'gender' on InputObject 'CreateUserInput' is required. Expected type String!")
   end
 end

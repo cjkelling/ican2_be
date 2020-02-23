@@ -6,8 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.boolean :mentor
       t.string :address
-      t.string :latitude
-      t.string :longitude
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

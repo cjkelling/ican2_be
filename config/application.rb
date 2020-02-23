@@ -27,7 +27,7 @@ module Ican2Be
     # the framework and any gems in your application.
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://ican2app.herokuapp.com/'
+        origins '*'
         resource '*', headers: :any, methods: [:get, :post, :put, :options]
       end
     end

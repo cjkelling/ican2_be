@@ -1,10 +1,9 @@
 class Mutations::CreateUser < Mutations::BaseMutation
-
   argument :name, String, required: true
   argument :email, String, required: true
+  argument :address, String, required: true
   argument :password_digest, String, required: true
   argument :mentor, Boolean, required: true
-  argument :address, String, required: true
 
   argument :gender, String, required: true
   argument :about_me, String, required: true

@@ -8,5 +8,6 @@ module Types
     field :email, String, null: false
     field :password_digest, String, null: false
     field :address, String, null: false
+    field :mentor, Boolean, null: false
   end
 end
