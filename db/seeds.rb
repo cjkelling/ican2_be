@@ -27,6 +27,48 @@ Location.create!(
   meetup_radius: '25',
   user_id: mentee.id)
 
+mentee2 = User.create!(
+  name: 'Laura Schulz',
+  email: 'ls@email.com',
+  password: 'password',
+  mentor: false )
+
+Profile.create!(
+  age: 31,
+  gender: 'She/Her',
+  about_me: 'I want to learn more about botany.',
+  image: 'https://i.imgur.com/GcHaQVp.jpg',
+  field_of_interest: 'Botany',
+  user_id: mentee2.id)
+
+Location.create!(
+  city: 'Brooklyn',
+  state: 'NY',
+  zip_code: '10221',
+  meetup_radius: '25',
+  user_id: mentee2.id)
+
+mentee3 = User.create!(
+  name: 'Rachel Lew',
+  email: 'rl@email.com',
+  password: 'password',
+  mentor: false )
+
+Profile.create!(
+  age: 31,
+  gender: 'She/Her',
+  about_me: 'I want to learn more about education.',
+  image: 'https://i.imgur.com/9jm780n.jpg',
+  field_of_interest: 'Education',
+  user_id: mentee3.id)
+
+Location.create!(
+  city: 'West Hollywood',
+  state: 'CA',
+  zip_code: '90231',
+  meetup_radius: '25',
+  user_id: mentee3.id)
+
 mentor = User.create!(
   name: 'Mary',
   email: 'ml@email.com',
@@ -325,7 +367,7 @@ MentorProfile.create!(
   enjoyment_question: 'I enjoy building relationships',
   teaching_points_question: 'I want to teach restorative justice',
   advice_question: 'Its about them',
-  user_id: mentor10.id) 
+  user_id: mentor10.id)
 
 
 
