@@ -45,6 +45,7 @@ describe 'get mentors endpoint' do
       }
     GRAPHQL
 
+
     post '/api/v1/graphql', params: { query: query_string,  variables: { email: "pb@email.com"}}
 
     result = JSON.parse(response.body)
