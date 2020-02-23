@@ -1,6 +1,6 @@
 # ican2
 
-![Imgur](https://i.imgur.com/QaqyvqP.png)
+![ican2](https://i.imgur.com/QaqyvqP.png?1)
 
 ### Description
 
@@ -76,7 +76,7 @@ Body:  { "query": "mentors": { "name" "city" "state" } } }
 
 ### Database Schema 
 
-![Database Schema](https://i.imgur.com/nhLdb4J.png)
+![Database Schema](https://i.imgur.com/VGaNhTz.png)
 
 ### Project Board
 
