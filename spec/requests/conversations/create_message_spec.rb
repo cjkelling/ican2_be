@@ -10,8 +10,6 @@ describe 'create message' do
     MentorProfile.create({ user_id: 2,   field_of_knowledge: 'Software Development', experience_level: 'Intermediate',
       work_day_question: 'My typical day is awesome!', enjoyment_question: 'I enjoy teaching and sharing my knowledge!',
       teaching_points_question: 'I want to teach React Native!', advice_question: 'Just keep swimming!'} )
-
-    @conversation = Conversation.create!(sender_id: @mentee.id, recipient_id: @mentor.id)
   end
 
   it 'creates a message' do

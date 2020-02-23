@@ -56,6 +56,20 @@ describe 'create user endpoint' do
           id
           name
           email
+          profile {
+            fieldOfInterest
+            aboutMe
+            image
+            gender
+           }
+          mentorProfile {
+              fieldOfKnowledge
+              experienceLevel
+              workDayQuestion
+              enjoymentQuestion
+              teachingPointsQuestion
+              adviceQuestion
+          }
         }
         errors
       }
