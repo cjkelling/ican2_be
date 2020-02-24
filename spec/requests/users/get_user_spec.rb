@@ -74,6 +74,21 @@ describe 'get user endpoint' do
     expect(result["data"]["users"]["name"]).to eq('Kayla')
     expect(result["data"]["users"]).to be_instance_of(Hash)
   end
+  it 'sends user info' do
+    query_string = <<-GRAPHQL
+    query($id: String!) {
+       users(id: $id) {
+        name
+      }
+    }
+
+    GRAPHQL
+
+    post '/api/v1/graphql', params: { query: query_string, variables: { id: @mentor2.id }}
+
+    result = JSON.parse(response.body)
+    expect(result["data"]["users"]["name"]).to eq('Kayla')
+  end
 
   it 'returns nil for a user query with invalid email' do
     query_string = <<-GRAPHQL
