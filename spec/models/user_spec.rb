@@ -6,13 +6,13 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email) }
     it { should validate_presence_of(:password) }
+    it { should validate_presence_of(:address) }
   end
 
   describe 'relationships' do
     it { should have_many :connections }
     it { should have_many :conversations }
 
-    it { should have_one :location }
     it { should have_one :profile }
     it { should have_one :mentor_profile }
   end

@@ -1,6 +1,5 @@
 User.destroy_all
 Profile.destroy_all
-Location.destroy_all
 MentorProfile.destroy_all
 Connection.destroy_all
 Conversation.destroy_all
@@ -10,22 +9,16 @@ mentee = User.create!(
   name: 'Christopher',
   email: 'ck@email.com',
   password: 'password',
+  address: 'Northglenn, CO',
   mentor: false )
 
 Profile.create!(
-  age: 31,
   gender: 'He/Him',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/w3GRLBt.jpg',
   field_of_interest: 'Software Development',
   user_id: mentee.id)
 
-Location.create!(
-  city: 'Northglenn',
-  state: 'CO',
-  zip_code: '80233',
-  meetup_radius: '25',
-  user_id: mentee.id)
 
 mentee2 = User.create!(
   name: 'Laura Schulz',
@@ -72,22 +65,15 @@ Location.create!(
 mentor = User.create!(
   name: 'Mary',
   email: 'ml@email.com',
+  address: 'Boulder, CO',
   password: 'password',
   mentor: true )
 
 Profile.create!(
-  age: 27,
   gender: 'She/Her',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/EZFb38Y.jpg',
   field_of_interest: 'Software Development',
-  user_id: mentor.id)
-
-Location.create!(
-  city: 'Boulder',
-  state: 'CO',
-  zip_code: '80021',
-  meetup_radius: '20',
   user_id: mentor.id)
 
 MentorProfile.create!(
@@ -101,23 +87,16 @@ MentorProfile.create!(
 
 mentor2 = User.create!(
   name: 'Kayla',
+  address: 'Denver, CO',
   email: 'kw@email.com',
   password: 'password',
   mentor: true )
 
 Profile.create!(
-  age: 28,
   gender: 'She/Her',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/xZ6ZMc5.jpg',
   field_of_interest: 'Software Development',
-  user_id: mentor2.id)
-
-Location.create!(
-  city: 'Denver',
-  state: 'CO',
-  zip_code: '80004',
-  meetup_radius: '15',
   user_id: mentor2.id)
 
 MentorProfile.create!(
@@ -131,23 +110,16 @@ MentorProfile.create!(
 
 mentor3 = User.create!(
   name: 'Ben',
+  address: 'Golden, CO',
   email: 'bf@email.com',
   password: 'password',
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/dhqysma.jpg',
   field_of_interest: 'Software Development',
-  user_id: mentor3.id)
-
-Location.create!(
-  city: 'Golden',
-  state: 'CO',
-  zip_code: '80132',
-  meetup_radius: '10',
   user_id: mentor3.id)
 
 MentorProfile.create!(

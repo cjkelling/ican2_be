@@ -7,14 +7,11 @@ describe 'create user endpoint' do
         email: "me@mattboldt.com"
         passwordDigest: "lalala"
         mentor: false
-        age: 29
         gender: "Male"
         fieldOfInterest: "Software"
         aboutMe: "I love vegetables"
         image: "this is an image string"
-        city: "Denver"
-        state: "CO"
-        zipCode: "90210"
+        address: "Denver, CO"
       }) {
         user {
           id
@@ -30,7 +27,6 @@ describe 'create user endpoint' do
 
     result = JSON.parse(response.body)
     user = User.last
-    expect(Location.last.user_id).to eq(user.id)
     expect(Profile.last.user_id).to eq(user.id)
     expect(MentorProfile.all.length).to eq(0)
     expect(user.name).to eq('Matt')
@@ -44,14 +40,11 @@ describe 'create user endpoint' do
         email: "me@mattboldt.com"
         passwordDigest: "lalala"
         mentor: true
-        age: 29
         gender: "Male"
         fieldOfInterest: "Software"
         aboutMe: "I love vegetables"
         image: "this is an image string"
-        city: "Denver"
-        state: "CO"
-        zipCode: "90210"
+        address: "Denver, CO"
         fieldOfKnowledge: "Software Development"
         experienceLevel: "Intermediate"
         workDayQuestion: "My typical day is awesome!"
@@ -74,7 +67,6 @@ describe 'create user endpoint' do
     result = JSON.parse(response.body)
     user = User.last
     expect(result["data"]["createUser"]["user"]["name"]).to eq('Matt')
-    expect(Location.last.user_id).to eq(user.id)
     expect(Profile.last.user_id).to eq(user.id)
     expect(MentorProfile.last.user_id).to eq(user.id)
   end
@@ -83,15 +75,12 @@ describe 'create user endpoint' do
     mutation {
       createUser(input: {
         name: "Matt",
-        email: "me@mattboldt.com"
         passwordDigest: "lalala"
         mentor: false
-        gender: "Male"
         fieldOfInterest: "Software"
         aboutMe: "I love vegetables"
         image: "this is an image string"
-        state: "CO"
-        zipCode: "90210"
+        address: "Boulder, CO"
       }) {
         user {
           id
@@ -107,7 +96,7 @@ describe 'create user endpoint' do
 
     result = JSON.parse(response.body)
     expect(result["errors"].length).to eq(2)
-    expect(result["errors"][0]["message"]).to eq("Argument 'age' on InputObject 'CreateUserInput' is required. Expected type Int!")
-    expect(result["errors"][1]["message"]).to eq("Argument 'city' on InputObject 'CreateUserInput' is required. Expected type String!")
+    expect(result["errors"][0]["message"]).to eq("Argument 'email' on InputObject 'CreateUserInput' is required. Expected type String!")
+    expect(result["errors"][1]["message"]).to eq("Argument 'gender' on InputObject 'CreateUserInput' is required. Expected type String!")
   end
 end

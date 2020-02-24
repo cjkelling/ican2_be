@@ -1,8 +1,8 @@
 describe 'update user endpoint' do
   before(:each) do
-    @mentor = User.create!({id: 1, name: 'Mary', email: 'ml@email.com',  password_digest: 'password', mentor: true})
+    @mentor = User.create!({id: 1, name: 'Mary', email: 'ml@email.com',  password_digest: 'password', mentor: true, address: 'Boulder, CO'})
 
-    Profile.create({ user_id: 1, age: 29, field_of_interest: 'Software Development', about_me: 'I want to learn more about software development.',  gender: 'She/Her',
+    Profile.create({ user_id: 1, field_of_interest: 'Software Development', about_me: 'I want to learn more about software development.',  gender: 'She/Her',
       image: 'https://ca.slack-edge.com/T029P2S9M-UKFAC39T8-a2bcff612d11-72' })
 
 
@@ -10,16 +10,11 @@ describe 'update user endpoint' do
       work_day_question: 'My typical day is awesome!', enjoyment_question: 'I enjoy teaching and sharing my knowledge!',
       teaching_points_question: 'I want to teach Ruby on Rails!', advice_question: 'Just keep swimming!' })
 
-    Location.create( {user_id: 1, city: 'Boulder',  state: 'CO', zip_code: '80202',  meetup_radius: '20' })
 
-    @user = User.create!({id: 2, name: 'Kayla', email: 'kw@email.com', password_digest: 'password', mentor: false })
+    @user = User.create!({id: 2, name: 'Kayla', email: 'kw@email.com', password_digest: 'password', mentor: false, address: 'Denver, CO'})
 
-    Profile.create({ user_id: 2, age: 29, field_of_interest: 'Software Development', about_me: 'I want to learn more about software development.',
+    Profile.create({ user_id: 2, field_of_interest: 'Software Development', about_me: 'I want to learn more about software development.',
       gender: 'She/Her', image: 'https://ca.slack-edge.com/T029P2S9M-UKDBXCVSR-c9dfc59451e1-72' })
-
-    Location.create({user_id: 2, city: 'Denver', state: 'CO', zip_code: '90210', meetup_radius: '15' })
-
-
   end
   it 'updates a user ' do
     query_string = <<-GRAPHQL
@@ -28,8 +23,7 @@ describe 'update user endpoint' do
         name: "May"
         email: "ml@email.com"
         mentor: false
-        city: "Denver"
-        zipCode: "66236"
+        address: "Denver, CO"
       }) {
         user {
           name
@@ -43,11 +37,11 @@ describe 'update user endpoint' do
     post '/api/v1/graphql', params: { query: query_string }
 
     result = JSON.parse(response.body)
+    @mentor.reload
     expect(result["data"]["updateUser"]["user"]["name"]).to eq('May')
     expect(result["data"]["updateUser"]["user"]["mentor"]).to eq(false)
-    expect(@mentor.location.city).to eq('Denver')
-    expect(@mentor.location.zip_code).to eq('66236')
-    expect(@mentor.mentor_profile).to be_nil 
+    expect(@mentor.address).to eq('Denver, CO')
+    expect(@mentor.mentor_profile).to be_nil
   end
   it 'can update user to mentor' do
     query_string = <<-GRAPHQL
