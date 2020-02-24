@@ -6,8 +6,10 @@ class Conversation < ApplicationRecord
 
   validates_uniqueness_of :sender_id, :scope => :recipient_id
 
-  def Conversation.conversations(sender, recipient)
-    convo = Conversation.where(sender_id: sender, recipient_id: recipient)
-    convo[0].id
+  def Conversation.conversations(user_id)
+    user_sent_conversations = Conversation.where(sender_id: user_id)
+    user_received_conversations =  Conversation.where(recipient_id: user_id)
+    convos = user_sent_conversations + user_received_conversations
+    convos
   end
 end
