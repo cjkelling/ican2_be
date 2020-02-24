@@ -28,7 +28,7 @@ Location.create!(
   user_id: mentee.id)
 
 mentee2 = User.create!(
-  name: 'Laura Schulz',
+  name: 'Laura',
   email: 'ls@email.com',
   password: 'password',
   mentor: false )
@@ -49,7 +49,7 @@ Location.create!(
   user_id: mentee2.id)
 
 mentee3 = User.create!(
-  name: 'Rachel Lew',
+  name: 'Rachel',
   email: 'rl@email.com',
   password: 'password',
   mentor: false )
@@ -68,6 +68,48 @@ Location.create!(
   zip_code: '90231',
   meetup_radius: '25',
   user_id: mentee3.id)
+
+mentee4 = User.create!(
+  name: 'Nick',
+  email: 'nn@email.com',
+  password: 'password',
+  mentor: false )
+
+Profile.create!(
+  age: 31,
+  gender: 'He/Him',
+  about_me: 'I want to learn more about integrated art',
+  image: 'https://i.imgur.com/sUKEnrf.jpg',
+  field_of_interest: 'Art',
+  user_id: mentee4.id)
+
+Location.create!(
+  city: 'Doral',
+  state: 'FL',
+  zip_code: '90231',
+  meetup_radius: '25',
+  user_id: mentee4.id)
+
+mentee5 = User.create!(
+  name: 'Foster',
+  email: 'ft@email.com',
+  password: 'password',
+  mentor: false )
+
+Profile.create!(
+  age: 31,
+  gender: 'He/Him',
+  about_me: 'I want to learn more about transformational theory',
+  image: 'https://i.imgur.com/du2rUvk.jpg',
+  field_of_interest: 'Music',
+  user_id: mentee5.id)
+
+Location.create!(
+  city: 'Round Rock',
+  state: 'TX',
+  zip_code: '90231',
+  meetup_radius: '25',
+  user_id: mentee5.id)
 
 mentor = User.create!(
   name: 'Mary',
@@ -369,38 +411,185 @@ MentorProfile.create!(
   advice_question: 'Its about them',
   user_id: mentor10.id)
 
+mentor11 = User.create!(
+  name: 'Scott',
+  email: 'se@email.com',
+  password: 'password',
+  mentor: true)
 
+Profile.create!(
+  age: 26,
+  gender: 'He/Him',
+  about_me: 'I want to learn about conceptual art',
+  image: 'https://i.imgur.com/BX6ot7r.jpg',
+  field_of_interest: 'Art',
+  user_id: mentor11.id)
 
+Location.create!(
+  city: 'Miami',
+  state: 'FL',
+  zip_code: '80132',
+  meetup_radius: '10',
+  user_id: mentor11.id)
 
+MentorProfile.create!(
+  field_of_knowledge: 'Art',
+  experience_level: 'Advanced',
+  work_day_question: 'My typical day is creative',
+  enjoyment_question: 'I enjoy creating beautifil work',
+  teaching_points_question: 'I want to teach craftsmanship',
+  advice_question: 'Look for inspiration',
+  user_id: mentor11.id)
 
+mentor12 = User.create!(
+  name: 'Dustin',
+  email: 'dm@email.com',
+  password: 'password',
+  mentor: true)
 
+Profile.create!(
+  age: 26,
+  gender: 'He/Him',
+  about_me: 'I want to learn about 3D graphics',
+  image: 'https://i.imgur.com/sByfoZz.jpg',
+  field_of_interest: 'Art',
+  user_id: mentor12.id)
 
+Location.create!(
+  city: 'Hialeah',
+  state: 'FL',
+  zip_code: '80132',
+  meetup_radius: '10',
+  user_id: mentor12.id)
 
+MentorProfile.create!(
+  field_of_knowledge: 'Art',
+  experience_level: 'Beginner',
+  work_day_question: 'My typical day is adventurous',
+  enjoyment_question: 'I enjoy creating beautifil work',
+  teaching_points_question: 'I want to teach dynamic painting',
+  advice_question: 'Think outside the box',
+  user_id: mentor12.id)
 
+mentor13 = User.create!(
+  name: 'Allie',
+  email: 'am@email.com',
+  password: 'password',
+  mentor: true)
 
+Profile.create!(
+  age: 26,
+  gender: 'She/Her',
+  about_me: 'I want to learn about algorithmic art',
+  image: 'https://i.imgur.com/7FXwEWV.jpg',
+  field_of_interest: 'Art',
+  user_id: mentor13.id)
 
+Location.create!(
+  city: 'Homestead',
+  state: 'FL',
+  zip_code: '80132',
+  meetup_radius: '10',
+  user_id: mentor13.id)
 
+MentorProfile.create!(
+  field_of_knowledge: 'Art',
+  experience_level: 'Intermediate',
+  work_day_question: 'My typical day is dynamic',
+  enjoyment_question: 'I enjoy exploring new possibilities',
+  teaching_points_question: 'I want to teach pixel art',
+  advice_question: 'Be true to your inner artist',
+  user_id: mentor13.id)
 
+mentor14 = User.create!(
+  name: 'David',
+  email: 'dl@email.com',
+  password: 'password',
+  mentor: true)
 
+Profile.create!(
+  age: 26,
+  gender: 'He/Him',
+  about_me: 'I want to learn about jazz',
+  image: 'https://i.imgur.com/98gB79D.jpg',
+  field_of_interest: 'Music',
+  user_id: mentor14.id)
 
+Location.create!(
+  city: 'Austin',
+  state: 'TX',
+  zip_code: '80132',
+  meetup_radius: '10',
+  user_id: mentor14.id)
 
+MentorProfile.create!(
+  field_of_knowledge: 'Music',
+  experience_level: 'Intermediate',
+  work_day_question: 'My typical day is jazzy',
+  enjoyment_question: 'I enjoy piecing together music and math',
+  teaching_points_question: 'I want to teach trumpet',
+  advice_question: 'Be able to improvise',
+  user_id: mentor14.id)
 
+mentor15 = User.create!(
+  name: 'Brian',
+  email: 'bb@email.com',
+  password: 'password',
+  mentor: true)
 
+Profile.create!(
+  age: 26,
+  gender: 'He/Him',
+  about_me: 'I want to learn about classical',
+  image: 'https://i.imgur.com/Ov6ZG3L.jpg',
+  field_of_interest: 'Music',
+  user_id: mentor15.id)
 
+Location.create!(
+  city: 'San Antonio',
+  state: 'TX',
+  zip_code: '80132',
+  meetup_radius: '10',
+  user_id: mentor15.id)
 
+MentorProfile.create!(
+  field_of_knowledge: 'Music',
+  experience_level: 'Intermediate',
+  work_day_question: 'My typical day is jammin',
+  enjoyment_question: 'I enjoy the therapy of sound',
+  teaching_points_question: 'I want to teach guitar',
+  advice_question: 'Practice',
+  user_id: mentor15.id)
 
+mentor16 = User.create!(
+  name: 'Raisa',
+  email: 'rp@email.com',
+  password: 'password',
+  mentor: true)
 
+Profile.create!(
+  age: 26,
+  gender: 'She/Her',
+  about_me: 'I want to learn about set theory',
+  image: 'https://i.imgur.com/WFYMk3Q.jpg',
+  field_of_interest: 'Music',
+  user_id: mentor16.id)
 
+Location.create!(
+  city: 'San Marcos',
+  state: 'TX',
+  zip_code: '80132',
+  meetup_radius: '10',
+  user_id: mentor16.id)
 
-
-
-
-
-
-
-
-
-
+MentorProfile.create!(
+  field_of_knowledge: 'Music',
+  experience_level: 'Advanced',
+  work_day_question: 'My typical day is enlightening',
+  enjoyment_question: 'I enjoy music theory',
+  teaching_points_question: 'I want to teach semiology',
+  advice_question: 'Practice',
+  user_id: mentor16.id)
 
 
 Connection.create!(
