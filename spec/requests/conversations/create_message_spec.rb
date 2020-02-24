@@ -20,10 +20,13 @@ describe 'create message' do
       mutation {
         createMessage(input: {
           conversationId: "#{@conversation.id}"
+          senderId: "#{@mentee.id}"
+          recipientId: "#{@mentor.id}"
           body: "Hello. Let's start a conversation!"
-          userId: "#{@mentee.id}"
         })  {
-          message
+          message {
+            body
+          }
         }
       }
     GRAPHQL
@@ -31,20 +34,20 @@ describe 'create message' do
     post '/api/v1/graphql', params: { query: query_string }
 
     result = JSON.parse(response.body)
-
     expect(Message.all.length).to eq(1)
-    expect(result["data"]["createMessage"]["message"]).to eq('Message created successfully!')
+    expect(result["data"]["createMessage"]["message"]["body"]).to eq("Hello. Let's start a conversation!")
   end
 
   it 'cannot create message without a valid conversation' do
     query_string = <<-GRAPHQL
       mutation {
         createMessage(input: {
-          conversationId: "75"
           body: "Hello. Let's start a conversation!"
-          userId: "#{@mentee.id}"
+          recipientId: "#{@mentor.id}"
         })  {
-          message
+          message {
+            body
+          }
         }
       }
     GRAPHQL
@@ -54,7 +57,7 @@ describe 'create message' do
     result = JSON.parse(response.body)
 
     expect(Message.all.length).to eq(0)
-    expect(result["errors"][0]["message"]).to eq("Cannot return null for non-nullable field CreateMessage.message")
+    expect(result["errors"][0]["message"]).to eq("Argument 'senderId' on InputObject 'CreateMessageInput' is required. Expected type String!")
   end
 
   it 'creates a conversation if proper sender_id and receiver_id is sent' do
@@ -64,9 +67,10 @@ describe 'create message' do
           senderId: "#{@mentee.id}"
           recipientId: "#{@mentor.id}"
           body: "Hello. Let's start a conversation!"
-          userId: "#{@mentee.id}"
         })  {
-          message
+          message {
+            body
+          }
         }
       }
     GRAPHQL
@@ -75,6 +79,6 @@ describe 'create message' do
 
     result = JSON.parse(response.body)
     expect(Message.all.length).to eq(1)
-    expect(result["data"]["createMessage"]["message"]).to eq('Message created successfully!')
+    expect(result["data"]["createMessage"]["message"]["body"]).to eq("Hello. Let's start a conversation!")
   end
 end
