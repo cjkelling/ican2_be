@@ -5,8 +5,6 @@ class Mutations::CreateUser < Mutations::BaseMutation
   argument :password_digest, String, required: true
   argument :mentor, Boolean, required: true
 
-
-  argument :age, Int, required: true
   argument :gender, String, required: true
   argument :about_me, String, required: true
   argument :image, String, required: true
@@ -21,7 +19,7 @@ class Mutations::CreateUser < Mutations::BaseMutation
 
   argument :city, String, required: true
   argument :state, String, required: true
-  argument :zip_code, String, required: true
+  argument :zip_code, String, required: false
   argument :meetup_radius, Int, required: false
 
   field :user, Types::UserType, null: false
@@ -29,18 +27,18 @@ class Mutations::CreateUser < Mutations::BaseMutation
 
   def resolve(name:, email:, password_digest:, mentor:,
 
-                  age:, gender:, about_me:, image:, field_of_interest:,
+                  gender:, about_me:, image:, field_of_interest:,
 
                   field_of_knowledge: nil, experience_level: nil,
                   work_day_question: nil, enjoyment_question: nil,
                   teaching_points_question: nil, advice_question: nil,
 
-                  city:, state:, zip_code:, meetup_radius: nil)
+                  city:, state:, zip_code: nil, meetup_radius: nil)
 
 
     user_info = { name: name, email: email, password_digest: password_digest, mentor: mentor}
 
-    profile_info = { age: age, gender: gender, about_me: about_me, image: image,
+    profile_info = { gender: gender, about_me: about_me, image: image,
                     field_of_interest: field_of_interest}
 
     mentor_info = { field_of_knowledge: field_of_knowledge, experience_level: experience_level,

@@ -13,7 +13,6 @@ mentee = User.create!(
   mentor: false )
 
 Profile.create!(
-  age: 31,
   gender: 'He/Him',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/w3GRLBt.jpg',
@@ -34,7 +33,6 @@ mentee2 = User.create!(
   mentor: false )
 
 Profile.create!(
-  age: 31,
   gender: 'She/Her',
   about_me: 'I want to learn more about botany.',
   image: 'https://i.imgur.com/GcHaQVp.jpg',
@@ -55,7 +53,6 @@ mentee3 = User.create!(
   mentor: false )
 
 Profile.create!(
-  age: 31,
   gender: 'She/Her',
   about_me: 'I want to learn more about education.',
   image: 'https://i.imgur.com/9jm780n.jpg',
@@ -76,7 +73,6 @@ mentee4 = User.create!(
   mentor: false )
 
 Profile.create!(
-  age: 31,
   gender: 'He/Him',
   about_me: 'I want to learn more about integrated art',
   image: 'https://i.imgur.com/sUKEnrf.jpg',
@@ -97,7 +93,6 @@ mentee5 = User.create!(
   mentor: false )
 
 Profile.create!(
-  age: 31,
   gender: 'He/Him',
   about_me: 'I want to learn more about transformational theory',
   image: 'https://i.imgur.com/du2rUvk.jpg',
@@ -118,7 +113,6 @@ mentor = User.create!(
   mentor: true )
 
 Profile.create!(
-  age: 27,
   gender: 'She/Her',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/EZFb38Y.jpg',
@@ -148,7 +142,6 @@ mentor2 = User.create!(
   mentor: true )
 
 Profile.create!(
-  age: 28,
   gender: 'She/Her',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/xZ6ZMc5.jpg',
@@ -178,7 +171,6 @@ mentor3 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn more about software development.',
   image: 'https://i.imgur.com/dhqysma.jpg',
@@ -208,7 +200,6 @@ mentor4 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'She/Her',
   about_me: 'I want to learn about bonsai.',
   image: 'https://i.imgur.com/jIQ3bwo.jpg',
@@ -238,7 +229,6 @@ mentor5 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about japanese peace lily.',
   image: 'https://i.imgur.com/T94KQRm.jpg',
@@ -268,7 +258,6 @@ mentor6 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about orchids.',
   image: 'https://i.imgur.com/DA6STdb.jpg',
@@ -298,7 +287,6 @@ mentor7 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about higher education',
   image: 'https://i.imgur.com/54CfFWn.jpg',
@@ -328,7 +316,6 @@ mentor8 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'She/Her',
   about_me: 'I want to learn about engagement strategies',
   image: 'https://i.imgur.com/gtXB6E4.jpg',
@@ -358,7 +345,6 @@ mentor9 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'She/Her',
   about_me: 'I want to learn about classroom management',
   image: 'https://i.imgur.com/9Fce70A.jpg',
@@ -388,7 +374,6 @@ mentor10 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about classroom management',
   image: 'https://i.imgur.com/bEEHRuL.png',
@@ -418,7 +403,6 @@ mentor11 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about conceptual art',
   image: 'https://i.imgur.com/BX6ot7r.jpg',
@@ -448,7 +432,6 @@ mentor12 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about 3D graphics',
   image: 'https://i.imgur.com/sByfoZz.jpg',
@@ -478,7 +461,6 @@ mentor13 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'She/Her',
   about_me: 'I want to learn about algorithmic art',
   image: 'https://i.imgur.com/7FXwEWV.jpg',
@@ -508,7 +490,6 @@ mentor14 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about jazz',
   image: 'https://i.imgur.com/98gB79D.jpg',
@@ -538,7 +519,6 @@ mentor15 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'He/Him',
   about_me: 'I want to learn about classical',
   image: 'https://i.imgur.com/Ov6ZG3L.jpg',
@@ -568,7 +548,6 @@ mentor16 = User.create!(
   mentor: true)
 
 Profile.create!(
-  age: 26,
   gender: 'She/Her',
   about_me: 'I want to learn about set theory',
   image: 'https://i.imgur.com/WFYMk3Q.jpg',

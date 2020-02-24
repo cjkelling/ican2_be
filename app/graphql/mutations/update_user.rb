@@ -7,7 +7,6 @@ class Mutations::UpdateUser < Mutations::BaseMutation
   argument :password_digest, String, required: false
   argument :mentor, Boolean, required: false
 
-  argument :age, Int, required: false
   argument :gender, String, required: false
   argument :about_me, String, required: false
   argument :image, String, required: false
@@ -30,7 +29,7 @@ class Mutations::UpdateUser < Mutations::BaseMutation
 
   def resolve(name: nil, email: nil, password_digest: nil, mentor: nil,
 
-                  age: nil, gender: nil, about_me: nil, image: nil, field_of_interest: nil,
+                  gender: nil, about_me: nil, image: nil, field_of_interest: nil,
 
                   field_of_knowledge: nil, experience_level: nil,
                   work_day_question: nil, enjoyment_question: nil,
@@ -41,7 +40,7 @@ class Mutations::UpdateUser < Mutations::BaseMutation
 
     user_info = { name: name, email: email, password_digest: password_digest, mentor: mentor}
 
-    profile_info = { age: age, gender: gender, about_me: about_me, image: image,
+    profile_info = { gender: gender, about_me: about_me, image: image,
                     field_of_interest: field_of_interest}
 
     mentor_info = { field_of_knowledge: field_of_knowledge, experience_level: experience_level,
