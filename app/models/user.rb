@@ -19,8 +19,12 @@ class User < ApplicationRecord
     User.joins(:location).joins(:mentor_profile).joins(:profile).where(formatted_selections)
   end
 
-  def User.get_user(email)
-    User.find_by(email: email)
+  def User.get_user(email, id)
+    if id
+      User.find(id)
+    else
+      User.find_by(email: email)
+    end 
   end
 
   def User.create_user_and_info(user_info, profile_info, mentor_info, location_info)

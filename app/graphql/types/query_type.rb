@@ -12,11 +12,12 @@ module Types
     end
 
     field :users, Types::UserType, null: false do
-      argument :email, String, required: true
+      argument :email, String, required: false
+      argument :id, String, required: false
     end
 
-    def users(email:)
-      User.get_user(email)
+    def users(email: nil, id: nil)
+      User.get_user(email, id)
     end
 
     field :conversations, [Types::ConversationType], null: false do
