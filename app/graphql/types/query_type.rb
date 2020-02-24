@@ -19,13 +19,12 @@ module Types
       User.get_user(email)
     end
 
-    field :conversations, Types::ConversationType, null: false do
-      argument :sender, String, required: true
-      argument :recipient, String, required: true
+    field :conversations, [Types::ConversationType], null: false do
+      argument :user_id, String, required: true
     end
 
-    def conversations(sender:, recipient:)
-      Conversation.conversations(sender.to_i, recipient.to_i)
+    def conversations(user_id:)
+      Conversation.conversations(user_id)
     end
 
     field :messages, [Types::MessageType], null: false do
@@ -34,7 +33,7 @@ module Types
     end
 
     def messages(sender:, recipient:)
-      response = Message.messages(Conversation.conversations(sender.to_i, recipient.to_i))
+      response = Message.messages(sender, recipient)
     end
   end
 end

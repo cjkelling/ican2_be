@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'graphiql-rails'
 gem 'geocoder'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
