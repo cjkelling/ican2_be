@@ -92,7 +92,7 @@ Location.create!(
 
 mentee5 = User.create!(
   name: 'Foster',
-  email: 'ft@email.com',
+  email: 'ft2@email.com',
   password: 'password',
   mentor: false )
 
