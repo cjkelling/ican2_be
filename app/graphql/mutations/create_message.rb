@@ -8,9 +8,12 @@ class Mutations::CreateMessage < Mutations::BaseMutation
   field :errors, [String], null: false
 
   def resolve(conversation_id: nil, sender_id: nil, recipient_id: nil, body:)
-    conversation = Conversation.find_by(id: conversation_id)
+    conversation = Conversation.find_by(sender_id: sender_id, recipient_id: recipient_id)
+    if !conversation
+      conversation = Conversation.find_by(sender_id: recipient_id, recipient_id: sender_id)
+    end
     if conversation
-      message = Message.new(conversation_id: conversation_id, body: body, user_id: sender_id)
+      message = Message.new(conversation_id: conversation.id, body: body, user_id: sender_id)
       if message.save
         {
            message: message,
