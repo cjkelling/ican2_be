@@ -5,9 +5,30 @@
 ### Table
 
 [Description](#description)
+
 [Tech Stack](#tech-stack)
+
 [Links](#links)
+
 [Getting Started](#getting-started)
+
+[Install Necessary Dependencies](#install-necessary-dependencies)
+
+[Setup Local Database](#set-up-local-database)
+
+[Running Local Server](#running-local-server)
+
+[Testing](#testing)
+
+[Deploying to Heroku](#deploying-to-heroku)
+
+[Endpoints](#endpoints)
+
+[Database Schema](#database-schema)
+
+[Project Board](#project-board)
+
+[Core Contributors](#core-contributors)
 
 
 ### Description
