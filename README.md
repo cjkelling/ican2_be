@@ -57,15 +57,24 @@ FrontEnd Heroku : Find our front end app [here](https://ican2app.herokuapp.com/)
 
 *Note: This project is built on Rails. For more information about installing Rails, see [here](https://guides.rubyonrails.org/v5.0/getting_started.html).*
 
-Instal necessary dependencies using `bundle install`
-To generate rspec files: `rails generate rspec:install`
+
+Instal necessary dependencies using
+
+`bundle install`
+
+To generate rspec files: 
+
+`rails generate rspec:install`
 
 
 ### Set up local database
 
 This project uses a PostgreSQL database. Database names are specified in the database.yml To create, migrate and seed run the following commands:
+
 `rails db:create`
+
 `rails db:migrate`
+
 `rails db:seed`
 
 ### Running local server
