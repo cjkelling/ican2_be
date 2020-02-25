@@ -93,7 +93,7 @@ Being a grahpql api we have one endpoint to serve all requests, that endpoint be
 
 ### Requests Formats
 <details> 
-  <summary>***Get a single user with name and email attributes:***</summary>
+  <summary>Get a single user with name and email attributes:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -165,7 +165,7 @@ Response:
 </details>
 
 <details>
-  <summary>***Get all mentors with name city and state:***</summary>
+  <summary>Get all mentors with name city and state:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -382,7 +382,7 @@ Response:
 </details> 
 
 <details>
-  <summary>***Get all conversations by user_id:***</summary>
+  <summary>Get all conversations by user_id:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -397,7 +397,7 @@ Body:
 </details>
 
 <details>
-  <summary>***Get a single conversation by sender and recipient id:***</summary>
+  <summary>Get a single conversation by sender and recipient id:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -411,7 +411,7 @@ Body:
 </details>
 
 <details> 
-  <summary>***Create a user by entering wanted profile information:***</summary>
+  <summary>Create a user by entering wanted profile information:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -490,7 +490,7 @@ Response:
 </details> 
 
 <details>
-  <summary>***Create a connection between mentor and mentee by their emails:***</summary>
+  <summary>Create a connection between mentor and mentee by their emails:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -505,7 +505,7 @@ Body:
 </details>
 
 <details>
-  <summary>***Create a conversation and message between mentor and mentee by their ids:***</summary>
+  <summary>Create a conversation and message between mentor and mentee by their ids:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -520,7 +520,7 @@ Body:
 </details>
 
 <details>
-  <summary>***Update a user by modifying their profile data:***</summary>
+  <summary>Update a user by modifying their profile data:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -535,7 +535,7 @@ Body:
 </details>
 
 <details>
-  <summary>***Update a message from unread to read:***</summary>
+  <summary>Update a message from unread to read:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -550,7 +550,7 @@ Body:
 </details>
 
 <details>
-  <summary>***Destroy a user by their emails:***</summary>
+  <summary>Destroy a user by their emails:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -565,7 +565,7 @@ Body:
 </details>
 
 <details>
-  <summary>***Destroy a connection by mentor and mentee email:***</summary>
+  <summary>Destroy a connection by mentor and mentee email:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -579,7 +579,7 @@ Body:
 </details>
 
 <details>
-  <summary>***Destroy a message by the message id:***</summary>
+  <summary>Destroy a message by the message id:</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -592,6 +592,103 @@ Body:
 `{ "query": "destroyMessage("id")": { "message" } }`
 </details>
 
+<details>
+  <summary>Get all conversations for one user</summary>
+  
+POST request to `/api/v1/graphql`
+
+Headers:
+
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+```
+      query($userId: String!) {
+        conversations(userId: $userId){
+          id
+          senderId
+          recipientId
+        }
+      }
+ ```
+ 
+Response: 
+
+```
+{
+    "data": {
+        "conversations": [
+            {
+                "id": 1,
+                "senderId": 1,
+                "recipientId": 6
+            },
+            {
+                "id": 2,
+                "senderId": 1,
+                "recipientId": 7
+            },
+            {
+                "id": 3,
+                "senderId": 1,
+                "recipientId": 8
+            },
+            {
+                "id": 5,
+                "senderId": 1,
+                "recipientId": 2
+            }
+        ]
+    }
+}
+```
+</details>
+
+<details>
+  <summary>Get all messages between two users</summary>
+  
+POST request to `/api/v1/graphql`
+
+Headers:
+
+`{ 'Content-Type': 'application/json' } `
+
+Body: 
+```
+      query($sender: String!, $recipient: String!) {
+        messages(sender: $sender, recipient: $recipient){
+          body
+          read
+        }
+      }
+```
+
+Response:
+```
+{
+    "data": {
+        "messages": [
+            {
+                "body": "Hello. Let's start a conversation!",
+                "read": false
+            },
+            {
+                "body": "Hello, happy to chat!",
+                "read": false
+            },
+            {
+                "body": "Do you like music?",
+                "read": false
+            },
+            {
+                "body": "I LOVE MUSIC!!",
+                "read": false
+            }
+        ]
+    }
+}
+```
 ### Response Format
 
 ***Example Format:***
