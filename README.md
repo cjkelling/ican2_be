@@ -485,7 +485,8 @@ Body:
 
 </details>
 
-***Update a user by modifying their profile data:***
+<details>
+  <summary>***Update a user by modifying their profile data:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -497,7 +498,10 @@ Body:
 
 `{ "query": "updateUser("city", "state", "zipCode")": { "city" "state" "zip"} }`
 
-***Update a message from unread to read:***
+</details>
+
+<details>
+  <summary>***Update a message from unread to read:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -509,7 +513,10 @@ Body:
 
 `{ "query": "updateMessage("read")": { "read" } }`
 
-***Destroy a user by their emails:***
+</details>
+
+<details>
+  <summary>***Destroy a user by their emails:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -521,7 +528,10 @@ Body:
 
 `{ "query": "destroyUser("email")": { "message" } }`
 
-***Destroy a connection by mentor and mentee email:***
+</details>
+
+<details>
+  <summary>***Destroy a connection by mentor and mentee email:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -532,8 +542,10 @@ Headers:
 Body: 
 
 `{ "query": "destroyConnection("menteeEmail" "mentorEmail")": { "message" } }`
+</details>
 
-***Destroy a message by the message id:***
+<details>
+  <summary>***Destroy a message by the message id:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -544,6 +556,7 @@ Headers:
 Body:  
 
 `{ "query": "destroyMessage("id")": { "message" } }`
+</details>
 
 ### Response Format
 
