@@ -2,6 +2,14 @@
 
 ![ican2](https://i.imgur.com/QaqyvqP.png?1)
 
+### Table
+
+[Description](#description)
+[Tech Stack](#tech-stack)
+[Links](#links)
+[Getting Started](#getting-started)
+
+
 ### Description
 
 ican2 is a Rails GraphQL API serving queries for a PostgreSQL database comprised of users who can have connections to each other in the form of mentee to mentor. These connections are also able to have conversations and messages sent between the two users.
@@ -352,7 +360,8 @@ Response:
 ```
 </details> 
 
-***Get all conversations by user_id:***
+<details>
+  <summary>***Get all conversations by user_id:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -364,7 +373,10 @@ Body:
 
 `{ "query": "conversations("user_id")": { "id" "senderId" "recipientId" } }`
 
-***Get a single conversation by sender and recipient id:***
+</details>
+
+<details>
+  <summary>***Get a single conversation by sender and recipient id:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -375,6 +387,7 @@ Headers:
 Body:  
 
 `{ "query": "messages("sender", "recipient")": { "body" "read"} }`
+</details>
 
 <details> 
   <summary>***Create a user by entering wanted profile information:***</summary>
