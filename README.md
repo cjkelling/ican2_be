@@ -84,7 +84,7 @@ To run locally, simply use the command `rails server` or `rails s` for short.
 ### Testing
 
 With rspec installed the simply command `rspec` will run the entire test suite
-Tests can be run singularly by running `rspec` followed by the test file path\
+Tests can be run singularly by running `rspec` followed by the test file path
 
 ## Deploying to Heroku
 
