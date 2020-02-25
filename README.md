@@ -49,7 +49,7 @@ FrontEnd Repo:
 
 BackEnd Heroku :  Find our heroku app [here](https://ican2-be-rails.herokuapp.com/)
 
-FrontEnd Heroku : Find our front end app [here]
+FrontEnd Heroku : Find our front end app [here](https://ican2app.herokuapp.com/)
 
 ## Getting Started
 
