@@ -692,33 +692,6 @@ Response:
 </details> 
 
 
-### Response Format
-
-***Example Format:***
-  {
-    data: {
-      methodNameCalled: {
-        modelTypeAffected: {
-          attributesReturned
-        }
-        errors: []
-      }
-    }
-  }
-
-***Actual updateUser Response:***
-  {
-    "data": {
-      "updateUser": {
-        "user": {
-          "name": "May",
-          "mentor": false
-        },
-        "errors": []
-      }
-    }
-  }
-
 ### Database Schema
 
 ![Database Schema](https://i.imgur.com/634n5KS.png)
