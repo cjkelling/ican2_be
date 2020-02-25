@@ -74,6 +74,7 @@ describe 'get user endpoint' do
     expect(result["data"]["users"]["name"]).to eq('Kayla')
     expect(result["data"]["users"]).to be_instance_of(Hash)
   end
+
   it 'sends user info' do
     query_string = <<-GRAPHQL
     query($id: String!) {
