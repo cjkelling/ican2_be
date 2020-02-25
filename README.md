@@ -352,7 +352,7 @@ Response:
 ```
 </details> 
 
-***Get a all conversations by user_id:***
+***Get all conversations by user_id:***
 
 POST request to `/api/v1/graphql`
 
@@ -376,7 +376,8 @@ Body:
 
 `{ "query": "messages("sender", "recipient")": { "body" "read"} }`
 
-***Create a user by entering wanted profile information:***
+<details> 
+  <summary>***Create a user by entering wanted profile information:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -386,9 +387,76 @@ Headers:
 
 Body:  
 
-`{ "query": "createUser("name", "email", "passwordDigest", "mentor", "gender", "fieldOfInterest", "aboutMe", "image", "city", "state", "zipCode", "fieldOfKnowledge", "experienceLevel", "workDayQuestion", "enjoymentQuestion", "teachingPointsQuestion", "adviceQuestion")": { "id" "name" "email"} }`
+```
+    mutation {
+      createUser(input: {
+        name: "Matt",
+        email: "me@mattboldt.com"
+        passwordDigest: "lalala"
+        mentor: true
+        gender: "Male"
+        fieldOfInterest: "Software"
+        aboutMe: "I love vegetables"
+        image: "this is an image string"
+        city: "Denver"
+        state: "CO"
+        zipCode: "90210"
+        fieldOfKnowledge: "Software Development"
+        experienceLevel: "Intermediate"
+        workDayQuestion: "My typical day is awesome!"
+        enjoymentQuestion: "I enjoy teaching and sharing my knowledge!"
+        teachingPointsQuestion: "I want to teach React Native!"
+        adviceQuestion: "Just keep swimming!"
+      }) {
+        user {
+          id
+          name
+          email
+        }
+        errors
+      }
+    }
+```
+    
+Response:
+    
+```
+{
+    "data": {
+        "createUser": {
+            "user": {
+                "id": 45,
+                "name": "Matt",
+                "email": "mooshoofoo@mattboldt.com",
+                "mentor": true,
+                "profile": {
+                    "gender": "Male",
+                    "aboutMe": "I love vegetables",
+                    "image": "this is an image string",
+                    "fieldOfInterest": "Software"
+                },
+                "mentorProfile": {
+                    "fieldOfKnowledge": "Software Development",
+                    "experienceLevel": "Intermediate",
+                    "workDayQuestion": "My typical day is awesome!",
+                    "enjoymentQuestion": "I enjoy teaching and sharing my knowledge!",
+                    "teachingPointsQuestion": "I want to teach React Native!",
+                    "adviceQuestion": "Just keep swimming!"
+                },
+                "location": {
+                    "city": "Denver",
+                    "state": "CO"
+                }
+            },
+            "errors": []
+        }
+    }
+}
+```
+</details> 
 
-***Create a connection between mentor and mentee by their emails:***
+<details>
+  <summary>***Create a connection between mentor and mentee by their emails:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -400,7 +468,10 @@ Body:
 
 `{ "query": "createConnection("menteeEmail", "mentorEmail")": { "message"} }`
 
-***Create a conversation and message between mentor and mentee by their ids:***
+</details>
+
+<details>
+  <summary>***Create a conversation and message between mentor and mentee by their ids:***</summary>
 
 POST request to `/api/v1/graphql`
 
@@ -411,6 +482,8 @@ Headers:
 Body:  
 
 `{ "query": "createConversation("senderId", "recipientId")": { "message"} }`
+
+</details>
 
 ***Update a user by modifying their profile data:***
 
