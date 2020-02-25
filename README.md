@@ -45,7 +45,7 @@ ican2 is a Rails GraphQL API serving queries for a PostgreSQL database comprised
 
 BackEnd Repo: [here](https://github.com/cjkelling/ican2_be)
 
-FrontEnd Repo: 
+FrontEnd Repo: [here](https://github.com/benjamin-firth/ican2_FE)
 
 BackEnd Heroku :  Find our heroku app [here](https://ican2-be-rails.herokuapp.com/)
 
