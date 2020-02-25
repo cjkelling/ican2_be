@@ -10,10 +10,3 @@ before_install: gem install bundler -v 2.0.2
 before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
-deploy:
-  provider: heroku
-  api_key:
-    secure: FjPueTFRaf6ld81C7jG0q0n1Z+4g3dPogKvJGtseni3osKnZ66PdVyXgtYB01DeyI46Ex8ob5ao+hq5zH9qkNCeFRt+0LBZw+NGvtrZp1vPrQfWIiiy5OCSb4UcWi2SNAqhgrHNC0rhTT1obH19ftdCcWxLg1UjXrzNKTdB13vpojSEjybhFi5VQKN4Z1Y680Y88A+0NdCUOMC3+Bf69bzbGguz+KDIyYcciTN+iqwqxntfh4kqZudSfMCqtpgP+r3duH26Dl6Tc0d7DJ0LS/3k7E70e59opZiqeXYvcHvxKvMyYCrMb9vx4R6iVVBlOCExycm1ldqCM3kk+FDqSUFcDCXngIZ7nfFvVAPmSV5efNxPf0+NdsizymsJwYn+GVtCbjBEhUPI0LS8MRdfef8LNo2F55FKx76dl6G2/MiocKAoVXOSP7hR5nAHL+c1zs6ppYLNeByUyykBzcnfpJTE1ht6GOJGshOxe7dcHuVaVv3E9wmMGFagwaA35iAo+fl5lk6Sw3nRn8fViIenTNtmjziWRAmIHSo6cZjpRUbKTaSmSeco99kno4i9ysvT/K+b8bLTJWFxXLrTnA7eZCEhrzSFk0RONl83xoXTdLtDsTQib4fZWYOFqxqA86dU3uZqI4HYrhx8/hY47dw7VWuVdLSnd73vQSTMX5sOvc6I=
-  app: ican2
-  on:
-    repo: cjkelling/ican2_be
