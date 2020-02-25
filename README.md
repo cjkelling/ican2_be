@@ -689,6 +689,9 @@ Response:
     }
 }
 ```
+</details> 
+
+
 ### Response Format
 
 ***Example Format:***
