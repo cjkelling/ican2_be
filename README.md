@@ -12,6 +12,16 @@ ican2 is a Rails GraphQL API serving queries for a PostgreSQL database comprised
 * RSpec (3.9.0
 * PostgreSQL (11.5)
 
+### Links
+
+BackEnd Repo: [here](https://github.com/cjkelling/ican2_be)
+
+FrontEnd Repo: 
+
+BackEnd Heroku :  Find our heroku app [here](https://ican2-be-rails.herokuapp.com/)
+
+FrontEnd Heroku : Find our front end app [here]
+
 ## Getting Started
 
 ### Install necessary dependencies
@@ -53,102 +63,414 @@ Being a grahpql api we have one endpoint to serve all requests, that endpoint be
 `/api/v1/graphql`
 
 ### Requests Formats
-
-***Get a single user with name and email attributes:***
-
-POST request to `/api/v1/graphql`
-
-Headers: `{ 'Content-Type': 'application/json' } `
-
-Body:  { "query": "users": { "name" "email" } }
-
-***Get a all mentors with name city and state:***
+<details> 
+  <summary>***Get a single user with name and email attributes:***</summary>
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "mentors": { "name" "city" "state" } }
+`{ 'Content-Type': 'application/json' } `
+
+Body: 
+
+```
+    query($email: String!) {
+       users(email: $email) {
+        name
+        email
+        mentor
+       profile {
+            gender
+            aboutMe
+            image
+            fieldOfInterest
+        }
+        mentorProfile {
+          fieldOfKnowledge
+          experienceLevel
+          workDayQuestion
+          enjoymentQuestion
+          teachingPointsQuestion
+          adviceQuestion
+        }
+        location {
+          city
+          state
+        }
+      }
+    }
+```
+    
+Response: 
+
+```
+{
+    "data": {
+        "users": {
+            "name": "Kayla",
+            "email": "kw@email.com",
+            "mentor": true,
+            "profile": {
+                "gender": "She/Her",
+                "aboutMe": "I want to learn more about software development.",
+                "image": "https://i.imgur.com/xZ6ZMc5.jpg",
+                "fieldOfInterest": "Software Development"
+            },
+            "mentorProfile": {
+                "fieldOfKnowledge": "Software Development",
+                "experienceLevel": "Intermediate",
+                "workDayQuestion": "My typical day is awesome!",
+                "enjoymentQuestion": "I enjoy teaching and sharing my knowledge!",
+                "teachingPointsQuestion": "I want to teach React Native!",
+                "adviceQuestion": "Just keep swimming!"
+            },
+            "location": {
+                "city": "Denver",
+                "state": "CO"
+            }
+        }
+    }
+}
+```
+</details>
+
+<details>
+  <summary>***Get all mentors with name city and state:***</summary>
+
+POST request to `/api/v1/graphql`
+
+Headers:
+
+`{ 'Content-Type': 'application/json' } `
+
+Body: 
+
+`{ "query": "mentors": { "name" "location" { "city" "state" } } }`
+
+Response: 
+
+```
+{
+    "data": {
+        "mentors": [
+            {
+                "name": "Mary",
+                "email": "ml@email.com",
+                "location": {
+                    "city": "Boulder",
+                    "state": "CO"
+                }
+            },
+            {
+                "name": "Kayla",
+                "email": "kw@email.com",
+                "location": {
+                    "city": "Denver",
+                    "state": "CO"
+                }
+            },
+            {
+                "name": "Ben",
+                "email": "bf@email.com",
+                "location": {
+                    "city": "Golden",
+                    "state": "CO"
+                }
+            },
+            {
+                "name": "Alice",
+                "email": "ap@email.com",
+                "location": {
+                    "city": "New York",
+                    "state": "NY"
+                }
+            },
+            {
+                "name": "John",
+                "email": "jt@email.com",
+                "location": {
+                    "city": "Brooklyn",
+                    "state": "NY"
+                }
+            },
+            {
+                "name": "Ryan",
+                "email": "rh@email.com",
+                "location": {
+                    "city": "Bronx",
+                    "state": "NY"
+                }
+            },
+            {
+                "name": "Michael",
+                "email": "mc@email.com",
+                "location": {
+                    "city": "Los Angeles",
+                    "state": "CA"
+                }
+            },
+            {
+                "name": "Heather",
+                "email": "hf@email.com",
+                "location": {
+                    "city": "Los Angeles",
+                    "state": "CA"
+                }
+            },
+            {
+                "name": "Trisha",
+                "email": "tl@email.com",
+                "location": {
+                    "city": "Santa Monica",
+                    "state": "CA"
+                }
+            },
+            {
+                "name": "Fenton",
+                "email": "ft@email.com",
+                "location": {
+                    "city": "Torrance",
+                    "state": "CA"
+                }
+            },
+            {
+                "name": "Scott",
+                "email": "se@email.com",
+                "location": {
+                    "city": "Miami",
+                    "state": "FL"
+                }
+            },
+            {
+                "name": "Dustin",
+                "email": "dm@email.com",
+                "location": {
+                    "city": "Hialeah",
+                    "state": "FL"
+                }
+            },
+            {
+                "name": "Allie",
+                "email": "am@email.com",
+                "location": {
+                    "city": "Homestead",
+                    "state": "FL"
+                }
+            },
+            {
+                "name": "David",
+                "email": "dl@email.com",
+                "location": {
+                    "city": "Austin",
+                    "state": "TX"
+                }
+            },
+            {
+                "name": "Brian",
+                "email": "bb@email.com",
+                "location": {
+                    "city": "San Antonio",
+                    "state": "TX"
+                }
+            },
+            {
+                "name": "Raisa",
+                "email": "rp@email.com",
+                "location": {
+                    "city": "San Marcos",
+                    "state": "TX"
+                }
+            },
+            {
+                "name": "mmmvmvm",
+                "email": "mvmvmvm@.mm",
+                "location": {
+                    "city": "Alamosa",
+                    "state": "Colorado"
+                }
+            },
+            {
+                "name": "bruce",
+                "email": "bg@email.com",
+                "location": {
+                    "city": "Abbeville",
+                    "state": "Alabama"
+                }
+            },
+            {
+                "name": "WhittiB",
+                "email": "Kardashian@stayyoung.net",
+                "location": {
+                    "city": "Avon-by-the-Sea",
+                    "state": "New Jersey"
+                }
+            },
+            {
+                "name": "Pepper",
+                "email": "pep@meow.com",
+                "location": {
+                    "city": "Aetna",
+                    "state": "Arkansas"
+                }
+            },
+            {
+                "name": "Pep",
+                "email": "meow@pep.com",
+                "location": {
+                    "city": "A and F Trailer Park",
+                    "state": "Arizona"
+                }
+            },
+            {
+                "name": "name",
+                "email": "email@.",
+                "location": {
+                    "city": "Acebedo",
+                    "state": "California"
+                }
+            },
+            {
+                "name": "avas",
+                "email": "dva",
+                "location": {
+                    "city": "Abco",
+                    "state": "Arkansas"
+                }
+            },
+            {
+                "name": "Travis",
+                "email": "tr@email.com",
+                "location": {
+                    "city": "Byers",
+                    "state": "Colorado"
+                }
+            }
+        ]
+    }
+}
+```
+</details> 
 
 ***Get a all conversations by user_id:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "conversations("user_id")": { "id" "senderId" "recipientId" } }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "conversations("user_id")": { "id" "senderId" "recipientId" } }`
 
 ***Get a single conversation by sender and recipient id:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "messages("sender", "recipient")": { "body" "read"} }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "messages("sender", "recipient")": { "body" "read"} }`
 
 ***Create a user by entering wanted profile information:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "createUser("name", "email", "passwordDigest", "mentor", "gender", "fieldOfInterest", "aboutMe", "image", "city", "state", "zipCode", "fieldOfKnowledge", "experienceLevel", "workDayQuestion", "enjoymentQuestion", "teachingPointsQuestion", "adviceQuestion")": { "id" "name" "email"} }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "createUser("name", "email", "passwordDigest", "mentor", "gender", "fieldOfInterest", "aboutMe", "image", "city", "state", "zipCode", "fieldOfKnowledge", "experienceLevel", "workDayQuestion", "enjoymentQuestion", "teachingPointsQuestion", "adviceQuestion")": { "id" "name" "email"} }`
 
 ***Create a connection between mentor and mentee by their emails:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers:
 
-Body:  { "query": "createConnection("menteeEmail", "mentorEmail")": { "message"} }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "createConnection("menteeEmail", "mentorEmail")": { "message"} }`
 
 ***Create a conversation and message between mentor and mentee by their ids:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers:
 
-Body:  { "query": "createConversation("senderId", "recipientId")": { "message"} }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "createConversation("senderId", "recipientId")": { "message"} }`
 
 ***Update a user by modifying their profile data:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "updateUser("city", "state", "zipCode")": { "city" "state" "zip"} }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "updateUser("city", "state", "zipCode")": { "city" "state" "zip"} }`
 
 ***Update a message from unread to read:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "updateMessage("read")": { "read" } }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "updateMessage("read")": { "read" } }`
 
 ***Destroy a user by their emails:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "destroyUser("email")": { "message" } }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "destroyUser("email")": { "message" } }`
 
 ***Destroy a connection by mentor and mentee email:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers: 
 
-Body:  { "query": "destroyConnection("menteeEmail" "mentorEmail")": { "message" } }
+`{ 'Content-Type': 'application/json' } `
+
+Body: 
+
+`{ "query": "destroyConnection("menteeEmail" "mentorEmail")": { "message" } }`
 
 ***Destroy a message by the message id:***
 
 POST request to `/api/v1/graphql`
 
-Headers: `{ 'Content-Type': 'application/json' } `
+Headers:
 
-Body:  { "query": "destroyMessage("id")": { "message" } }
+`{ 'Content-Type': 'application/json' } `
+
+Body:  
+
+`{ "query": "destroyMessage("id")": { "message" } }`
 
 ### Response Format
 
