@@ -51,6 +51,7 @@ describe 'get mentors endpoint' do
     expect(result["data"]["mentors"][1]["name"]).to eq('Kayla')
     expect(result["data"]["mentors"][2]["name"]).to eq('Ben')
   end
+
   it 'sends all mentors by search with search params such as city and state' do
     query_string = <<-GRAPHQL
       query($location: String!) {
@@ -66,8 +67,8 @@ describe 'get mentors endpoint' do
     result = JSON.parse(response.body)
     expect(result["data"]["mentors"].length).to eq(1)
     expect(result["data"]["mentors"][0]["name"]).to eq('Ben')
-
   end
+  
   it 'cannot get mentors with invalid search params' do
     query_string = <<-GRAPHQL
       query($animal: String!) {
