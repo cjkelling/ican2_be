@@ -104,31 +104,10 @@ Headers:
 Body: 
 
 ```
-    query($email: String!) {
-       users(email: $email) {
-        name
-        email
-        mentor
-       profile {
-            gender
-            aboutMe
-            image
-            fieldOfInterest
-        }
-        mentorProfile {
-          fieldOfKnowledge
-          experienceLevel
-          workDayQuestion
-          enjoymentQuestion
-          teachingPointsQuestion
-          adviceQuestion
-        }
-        location {
-          city
-          state
-        }
-      }
-    }
+JSON.stringify({
+  query: " query($email: String!) {\n users(email: $email) {\n name\n email\n  mentor\n  profile {\n gender\n            aboutMe\n image\n fieldOfInterest\n }\n mentorProfile {\n fieldOfKnowledge\n experienceLevel\n workDayQuestion\n          enjoymentQuestion\n teachingPointsQuestion\n adviceQuestion\n}\n location {\n city\n state\n }\n }\n }",
+  variables: {"email":"kw@email.com"}
+})
 ```
     
 Response: 
@@ -175,7 +154,12 @@ Headers:
 
 Body: 
 
-`{ "query": "mentors": { "name" "location" { "city" "state" } } }`
+```
+JSON.stringify({
+  query: "    query{\n       mentors {\n        name\n        email\n       }\n    }\n    \n\n",
+  variables: {}
+})
+```
 
 Response: 
 
